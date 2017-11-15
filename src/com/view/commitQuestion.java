@@ -41,17 +41,17 @@ public class commitQuestion extends JPanel {
 		
 		
 		JLabel lblNewLabel = new JLabel("\u95EE\u9898\u53D1\u5E03");
-		lblNewLabel.setFont(new Font("微软雅黑", Font.PLAIN, 28));
+		lblNewLabel.setFont(new Font("寰蒋闆呴粦", Font.PLAIN, 28));
 		lblNewLabel.setBounds(237, 10, 279, 46);
 		add(lblNewLabel);
 		
 		JLabel lblIs = new JLabel("\u5DF2\u53D1\u5E03\u95EE\u9898");
-		lblIs.setFont(new Font("微软雅黑", Font.PLAIN, 13));
+		lblIs.setFont(new Font("寰蒋闆呴粦", Font.PLAIN, 13));
 		lblIs.setBounds(41, 56, 150, 26);
 		add(lblIs);
 		
 		JLabel lblNot = new JLabel("\u672A\u53D1\u5E03\u95EE\u9898");
-		lblNot.setFont(new Font("微软雅黑", Font.PLAIN, 13));
+		lblNot.setFont(new Font("寰蒋闆呴粦", Font.PLAIN, 13));
 		lblNot.setBounds(41, 242, 150, 26);
 		add(lblNot);
 		initTableIs();
@@ -67,13 +67,13 @@ public class commitQuestion extends JPanel {
 			Vector vec=new Vector();
 			vec.add(v.get(0));
 			vec.add(v.get(1));
-			vec.add("收回");
+			vec.add("鏀跺洖");
 			data.add(vec);
 			
 		}
 		Vector header=new Vector();
-		header.add("编号");
-		header.add("问题");
+		header.add("缂栧彿");
+		header.add("闂");
 		header.add("");
 		DefaultTableModel tableModel=new DefaultTableModel(data,header);
 		tableIs = new JTable(tableModel);
@@ -88,11 +88,11 @@ public class commitQuestion extends JPanel {
 					int num=qAction.updateOpen(0,value);
 					if(num>0)
 					{
-						JOptionPane.showMessageDialog(null, "成功收回");
+						JOptionPane.showMessageDialog(null, "鎴愬姛鏀跺洖");
 						initTableIs();
 						initTableNot();
 					}else {
-						JOptionPane.showMessageDialog(null, "收回失败");
+						JOptionPane.showMessageDialog(null, "鏀跺洖澶辫触");
 					}
 				}
 			}
@@ -116,13 +116,13 @@ public class commitQuestion extends JPanel {
 			Vector vec=new Vector();
 			vec.add(v.get(0));
 			vec.add(v.get(1));
-			vec.add("发布");
+			vec.add("鍙戝竷");
 			data.add(vec);
 			
 		}
 		Vector header=new Vector();
-		header.add("编号");
-		header.add("问题");
+		header.add("缂栧彿");
+		header.add("闂");
 		header.add("");
 		DefaultTableModel tableModel=new DefaultTableModel(data,header);
 		tableNot = new JTable(tableModel);
@@ -137,11 +137,11 @@ public class commitQuestion extends JPanel {
 					int num=qAction.updateOpen(1,value);
 					if(num>0)
 					{
-						JOptionPane.showMessageDialog(null, "发布成功");
+						JOptionPane.showMessageDialog(null, "鍙戝竷鎴愬姛");
 						initTableIs();
 						initTableNot();
 					}else {
-						JOptionPane.showMessageDialog(null, "发布失败");
+						JOptionPane.showMessageDialog(null, "鍙戝竷澶辫触");
 					}
 				}
 			}

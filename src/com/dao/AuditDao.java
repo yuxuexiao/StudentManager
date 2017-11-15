@@ -63,13 +63,13 @@ public class AuditDao {
 					v.add(rs.getString("profession"));
 					if(rs.getInt("audit")==3)
 					{
-						v.add("µÈ´ıÉóºË");
+						v.add("ç­‰å¾…å®¡æ ¸");
 					}
 					if(rs.getInt("audit")>3)
 					{
-						v.add("Í¨¹ı");
+						v.add("é€šè¿‡");
 					}
-					v.add("ÉóºË");
+					v.add("å®¡æ ¸");
 					result.add(v);
 				
 			}
@@ -187,13 +187,13 @@ public class AuditDao {
 					v.add(rs.getString("profession"));
 					if(rs.getInt("audit")==2)
 					{
-						v.add("µÈ´ıÉóºË");
+						v.add("ç­‰å¾…å®¡æ ¸");
 					}
 					if(rs.getInt("audit")>2)
 					{
-						v.add("Í¨¹ı");
+						v.add("é€šè¿‡");
 					}
-					v.add("ÉóºË");
+					v.add("å®¡æ ¸");
 					result.add(v);
 //				}
 			}
@@ -340,7 +340,7 @@ public class AuditDao {
 			{
 				conn=JDBCTools.getconn();
 				stat=conn.createStatement();
-				if(v.get(0).equals(true)&&v.get(2).equals("²»Í¨¹ı"))
+				if(v.get(0).equals(true)&&v.get(2).equals("ä¸é€šè¿‡"))
 				{
 					String sql="select * from student2 where sid='"+v.get(1)+"'";
 					rs=stat.executeQuery(sql);
@@ -410,7 +410,7 @@ public class AuditDao {
 			stat=conn.createStatement();
 			for(Vector vec:Batch)
 			{
-				if(vec.get(0).equals(true)&&vec.get(2).equals("µÈ´ıÉóºË"))
+				if(vec.get(0).equals(true)&&vec.get(2).equals("ç­‰å¾…å®¡æ ¸"))
 				{
 					String sql="update student2 set audit="+audit+",reason=null where sid='"+vec.get(1)+"'";
 					stat.addBatch(sql);

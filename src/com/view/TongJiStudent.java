@@ -44,7 +44,7 @@ public class TongJiStudent extends JPanel {
 		this.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("\u751F\u6E90\u5730\u7EDF\u8BA1");
-		lblNewLabel.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 25));
+		lblNewLabel.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 25));
 		lblNewLabel.setBounds(199, 23, 291, 72);
 		add(lblNewLabel);
 		
@@ -56,7 +56,7 @@ public class TongJiStudent extends JPanel {
 		
 		
 		JLabel lblEducation = new JLabel("\u5B66\u5386");
-		lblEducation.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 15));
+		lblEducation.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 15));
 		lblEducation.setBounds(59, 126, 46, 24);
 		add(lblEducation);
 		
@@ -65,15 +65,15 @@ public class TongJiStudent extends JPanel {
 		JComboBox comboDepartment = new JComboBox();
 		
 		
-		comboEducation.addItem("±¾¿Æ");
-		comboEducation.addItem("×¨¿Æ");
-		comboEducation.addItem("Ë¶Ê¿");
-		comboEducation.addItem("²©Ê¿");
+		comboEducation.addItem("æœ¬ç§‘");
+		comboEducation.addItem("ä¸“ç§‘");
+		comboEducation.addItem("ç¡•å£«");
+		comboEducation.addItem("åšå£«");
 		comboEducation.setBounds(115, 127, 90, 24);
 		add(comboEducation);
 		
 		JLabel labDepartment = new JLabel("\u5B66\u9662");
-		labDepartment.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 15));
+		labDepartment.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 15));
 		labDepartment.setBounds(259, 126, 46, 24);
 		add(labDepartment);
 		
@@ -123,24 +123,24 @@ public class TongJiStudent extends JPanel {
 					
 					
 					Vector<Vector> data=new Vector();
-					Vector<String> header=new Vector<String>();//»ñÈ¡µØÖ·||±íÍ·
-					Vector<String> adds=tAction.getAllAddress();//µØÖ·Ç°Á½¸ö×Ö
+					Vector<String> header=new Vector<String>();//è·å–åœ°å€||è¡¨å¤´
+					Vector<String> adds=tAction.getAllAddress();//åœ°å€å‰ä¸¤ä¸ªå­—
 					
 					header.add("");
-					for(String str:adds)//»ñÈ¡µØÖ·||±íÍ·  ÓÅ»¯
+					for(String str:adds)//è·å–åœ°å€||è¡¨å¤´  ä¼˜åŒ–
 					{
-						if(str.equals("ºÚÁú"))
+						if(str.equals("é»‘é¾™"))
 						{
-							str=str+"½­";
-						}if(str.equals("Î´Öª")) {
+							str=str+"æ±Ÿ";
+						}if(str.equals("æœªçŸ¥")) {
 							header.add(str);
 							continue;
 						}
 						header.add(str);
 					 }
-					Vector<String> profession=tAction.getAllProfessionByDepartmen(department);//»ñÈ¡×¨Òµ
+					Vector<String> profession=tAction.getAllProfessionByDepartmen(department);//è·å–ä¸“ä¸š
 					
-						data=tAction.getCount(education,profession,adds);//¸ù¾İÑ§Àú,ÔºÏµ¶ÔÓ¦×¨Òµ  Í³¼Æ
+						data=tAction.getCount(education,profession,adds);//æ ¹æ®å­¦å†,é™¢ç³»å¯¹åº”ä¸“ä¸š  ç»Ÿè®¡
 							Vector counts=	tAction.getCounts(education,department, adds);
 							data.add(counts);
 							
@@ -173,9 +173,9 @@ public class TongJiStudent extends JPanel {
 					}
 					if(result)
 					{
-						JOptionPane.showMessageDialog(null, "µ¼³ö³É¹¦");
+						JOptionPane.showMessageDialog(null, "å¯¼å‡ºæˆåŠŸ");
 					}else {
-						JOptionPane.showMessageDialog(null, "µ¼³öÊ§°Ü");
+						JOptionPane.showMessageDialog(null, "å¯¼å‡ºå¤±è´¥");
 					}
 				}
 				
@@ -190,23 +190,23 @@ public class TongJiStudent extends JPanel {
 	private void initTable(String education, String department)
 	{
 		
-		Vector<String> adds=tAction.getAllAddress();//µØÖ·Ç°Á½¸ö×Ö
-		Vector<String> header=new Vector<String>();//»ñÈ¡µØÖ·||±íÍ·
+		Vector<String> adds=tAction.getAllAddress();//åœ°å€å‰ä¸¤ä¸ªå­—
+		Vector<String> header=new Vector<String>();//è·å–åœ°å€||è¡¨å¤´
 		header.add("");
-		for(String str:adds)//»ñÈ¡µØÖ·||±íÍ·  ÓÅ»¯
+		for(String str:adds)//è·å–åœ°å€||è¡¨å¤´  ä¼˜åŒ–
 		{
-			if(str.equals("ºÚÁú"))
+			if(str.equals("é»‘é¾™"))
 			{
-				str=str+"½­";
-			}if(str.equals("Î´Öª")) {
+				str=str+"æ±Ÿ";
+			}if(str.equals("æœªçŸ¥")) {
 				header.add(str);
 				continue;
 			}
 			header.add(str);
 		 }
-		Vector<String> profession=tAction.getAllProfessionByDepartmen(department);//»ñÈ¡×¨Òµ
+		Vector<String> profession=tAction.getAllProfessionByDepartmen(department);//è·å–ä¸“ä¸š
 		
-			data=tAction.getCount(education,profession,adds);//¸ù¾İÑ§Àú,ÔºÏµ¶ÔÓ¦×¨Òµ  Í³¼Æ
+			data=tAction.getCount(education,profession,adds);//æ ¹æ®å­¦å†,é™¢ç³»å¯¹åº”ä¸“ä¸š  ç»Ÿè®¡
 				Vector counts=	tAction.getCounts(education,department, adds);
 				data.add(counts);
 		DefaultTableModel tableModel=new DefaultTableModel(data,header);

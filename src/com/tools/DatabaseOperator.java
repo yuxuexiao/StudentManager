@@ -11,19 +11,19 @@ import java.io.OutputStreamWriter;
 public class DatabaseOperator {
 
 	/**
-	 * Êı¾İ¿â±¸·İ
+	 * æ•°æ®åº“å¤‡ä»½
 	 * 
 	 * @param username
-	 *            Êı¾İ¿âÓÃ»§Ãû
+	 *            æ•°æ®åº“ç”¨æˆ·å
 	 * @param password
-	 *            Êı¾İ¿âÃÜÂë
+	 *            æ•°æ®åº“å¯†ç 
 	 * @param database
-	 *            Êı¾İ¿âÃû³Æ
+	 *            æ•°æ®åº“åç§°
 	 * @param savepath
-	 *            ´æ´¢Â·¾¶
+	 *            å­˜å‚¨è·¯å¾„
 	 * @param backupname
-	 *            ±¸·İµÄÎÄ¼şÃû
-	 * @return boolean ÊÇ·ñ³É¹¦
+	 *            å¤‡ä»½çš„æ–‡ä»¶å
+	 * @return boolean æ˜¯å¦æˆåŠŸ
 	 */
 
 	public static boolean backup(String username, String password, String database, 
@@ -36,18 +36,18 @@ public class DatabaseOperator {
 			Process child = rt.exec("cmd /c mysqldump  -u" + username + "  -p"
 					+ password + "  --set-charset=utf8   " + database );
 			
-			// °Ñ½ø³ÌÖ´ĞĞÖĞµÄ¿ØÖÆÌ¨Êä³öĞÅÏ¢Ğ´Èë.sqlÎÄ¼ş£¬¼´Éú³ÉÁË±¸·İÎÄ¼ş¡£
-			// ×¢£ºÈç¹û²»¶Ô¿ØÖÆÌ¨ĞÅÏ¢½øĞĞ¶Á³ö£¬Ôò»áµ¼ÖÂ½ø³Ì¶ÂÈûÎŞ·¨ÔËĞĞ
-			InputStream in = child.getInputStream();// ¿ØÖÆÌ¨µÄÊä³öĞÅÏ¢×÷ÎªÊäÈëÁ÷
+			// æŠŠè¿›ç¨‹æ‰§è¡Œä¸­çš„æ§åˆ¶å°è¾“å‡ºä¿¡æ¯å†™å…¥.sqlæ–‡ä»¶ï¼Œå³ç”Ÿæˆäº†å¤‡ä»½æ–‡ä»¶ã€‚
+			// æ³¨ï¼šå¦‚æœä¸å¯¹æ§åˆ¶å°ä¿¡æ¯è¿›è¡Œè¯»å‡ºï¼Œåˆ™ä¼šå¯¼è‡´è¿›ç¨‹å µå¡æ— æ³•è¿è¡Œ
+			InputStream in = child.getInputStream();// æ§åˆ¶å°çš„è¾“å‡ºä¿¡æ¯ä½œä¸ºè¾“å…¥æµ
 
-			InputStreamReader xx = new InputStreamReader(in, "utf8");// ÉèÖÃÊä³öÁ÷±àÂëÎªutf8¡£ÕâÀï±ØĞëÊÇutf8£¬·ñÔò´ÓÁ÷ÖĞ¶ÁÈëµÄÊÇÂÒÂë
+			InputStreamReader xx = new InputStreamReader(in, "utf8");// è®¾ç½®è¾“å‡ºæµç¼–ç ä¸ºutf8ã€‚è¿™é‡Œå¿…é¡»æ˜¯utf8ï¼Œå¦åˆ™ä»æµä¸­è¯»å…¥çš„æ˜¯ä¹±ç 
 
 			String inStr;
 
 			StringBuffer sb = new StringBuffer("");
 
 			String outStr;
-			// ×éºÏ¿ØÖÆÌ¨Êä³öĞÅÏ¢×Ö·û´®
+			// ç»„åˆæ§åˆ¶å°è¾“å‡ºä¿¡æ¯å­—ç¬¦ä¸²
 			BufferedReader br = new BufferedReader(xx);
 
 			while ((inStr = br.readLine()) != null) {
@@ -57,18 +57,18 @@ public class DatabaseOperator {
 			}
 
 			outStr = sb.toString();
-			// ÒªÓÃÀ´×öµ¼ÈëÓÃµÄsqlÄ¿±êÎÄ¼ş£º
+			// è¦ç”¨æ¥åšå¯¼å…¥ç”¨çš„sqlç›®æ ‡æ–‡ä»¶ï¼š
 			FileOutputStream fout = new FileOutputStream(savepath + "/"
 					+ backupname);
 			
-			//utf8¹ú¼Ê»¯    gb2312ÖĞÎÄ 
+			//utf8å›½é™…åŒ–    gb2312ä¸­æ–‡ 
 
 			OutputStreamWriter writer = new OutputStreamWriter(fout, "utf8");
 
 			writer.write(outStr);
-			// ×¢£ºÕâÀïÈç¹ûÓÃ»º³å·½Ê½Ğ´ÈëÎÄ¼şµÄ»°£¬»áµ¼ÖÂÖĞÎÄÂÒÂë£¬ÓÃflush()·½·¨Ôò¿ÉÒÔ±ÜÃâ
+			// æ³¨ï¼šè¿™é‡Œå¦‚æœç”¨ç¼“å†²æ–¹å¼å†™å…¥æ–‡ä»¶çš„è¯ï¼Œä¼šå¯¼è‡´ä¸­æ–‡ä¹±ç ï¼Œç”¨flush()æ–¹æ³•åˆ™å¯ä»¥é¿å…
 			writer.flush();
-			// ±ğÍü¼Ç¹Ø±ÕÊäÈëÊä³öÁ÷
+			// åˆ«å¿˜è®°å…³é—­è¾“å…¥è¾“å‡ºæµ
 			in.close();
 
 			xx.close();
@@ -94,19 +94,19 @@ public class DatabaseOperator {
 	}
 	
 	/**
-	 * Êı¾İ¿â»Ö¸´
+	 * æ•°æ®åº“æ¢å¤
 	 * 
 	 * @param username
-	 *            Êı¾İ¿âÓÃ»§Ãû
+	 *            æ•°æ®åº“ç”¨æˆ·å
 	 * @param password
-	 *            Êı¾İ¿âÃÜÂë 
+	 *            æ•°æ®åº“å¯†ç  
 	 * @param database
-	 *            Êı¾İ¿âÃû³Æ
+	 *            æ•°æ®åº“åç§°
 	 * @param savepath
-	 *            ´æ´¢Â·¾¶
+	 *            å­˜å‚¨è·¯å¾„
 	 * @param backupname
-	 *            ±¸·İµÄÎÄ¼şÃû
-	 * @return boolean ÊÇ·ñ³É¹¦
+	 *            å¤‡ä»½çš„æ–‡ä»¶å
+	 * @return boolean æ˜¯å¦æˆåŠŸ
 	 */ 
 
 	
@@ -124,7 +124,7 @@ public class DatabaseOperator {
 			Process child = rt.exec("cmd /c mysql -u" + username + "  -p" + password
 					+ "   " + database);
 
-			OutputStream out = child.getOutputStream();// ¿ØÖÆÌ¨µÄÊäÈëĞÅÏ¢×÷ÎªÊä³öÁ÷
+			OutputStream out = child.getOutputStream();// æ§åˆ¶å°çš„è¾“å…¥ä¿¡æ¯ä½œä¸ºè¾“å‡ºæµ
 
 			String inStr;
 
@@ -147,9 +147,9 @@ public class DatabaseOperator {
 			OutputStreamWriter writer = new OutputStreamWriter(out, "utf8");
 
 			writer.write(outStr);
-			// ×¢£ºÕâÀïÈç¹ûÓÃ»º³å·½Ê½Ğ´ÈëÎÄ¼şµÄ»°£¬»áµ¼ÖÂÖĞÎÄÂÒÂë£¬ÓÃflush()·½·¨Ôò¿ÉÒÔ±ÜÃâ
+			// æ³¨ï¼šè¿™é‡Œå¦‚æœç”¨ç¼“å†²æ–¹å¼å†™å…¥æ–‡ä»¶çš„è¯ï¼Œä¼šå¯¼è‡´ä¸­æ–‡ä¹±ç ï¼Œç”¨flush()æ–¹æ³•åˆ™å¯ä»¥é¿å…
 			writer.flush();
-			// ±ğÍü¼Ç¹Ø±ÕÊäÈëÊä³öÁ÷
+			// åˆ«å¿˜è®°å…³é—­è¾“å…¥è¾“å‡ºæµ
 			out.close();
 
 			br.close();

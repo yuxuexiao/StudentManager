@@ -27,12 +27,12 @@ public class UpdatePass extends JPanel {
 		this.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("\u5BC6\u7801\u4FEE\u6539");
-		lblNewLabel.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 24));
+		lblNewLabel.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 24));
 		lblNewLabel.setBounds(228, 24, 242, 59);
 		add(lblNewLabel);
 		
 		JLabel lblOldPass = new JLabel("\u539F\u5BC6\u7801");
-		lblOldPass.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 15));
+		lblOldPass.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 15));
 		lblOldPass.setBounds(126, 99, 78, 31);
 		add(lblOldPass);
 		
@@ -42,7 +42,7 @@ public class UpdatePass extends JPanel {
 		textOldPss.setColumns(10);
 		
 		JLabel labNewPass = new JLabel("\u65B0\u5BC6\u7801");
-		labNewPass.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 15));
+		labNewPass.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 15));
 		labNewPass.setBounds(126, 168, 78, 31);
 		add(labNewPass);
 		
@@ -52,7 +52,7 @@ public class UpdatePass extends JPanel {
 		add(textNewPass);
 		
 		JLabel labelAgain = new JLabel("\u518D\u6B21\u8F93\u5165");
-		labelAgain.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 15));
+		labelAgain.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 15));
 		labelAgain.setBounds(126, 231, 78, 31);
 		add(labelAgain);
 		
@@ -68,26 +68,26 @@ public class UpdatePass extends JPanel {
 				String password=StudentMainFrame.uBean.getPassword();
 				String newPass=textNewPass.getText();
 				int rid=StudentMainFrame.uBean.getRid();
-				if(rid==1)//ĞŞ¸ÄÑ§ÉúÃÜÂë
+				if(rid==1)//ä¿®æ”¹å­¦ç”Ÿå¯†ç 
 				{
 					if(textNewPass.getText().equals(textAgain.getText()))
 					{
 						if(textOldPss.getText().equals(password))
 						{
-							int num=sAction.updatePassStudent(username,newPass);//ÕâÊÇ¸ö±ê¼Ç  Ì«ÄáÂêÂÒÁË
+							int num=sAction.updatePassStudent(username,newPass);//è¿™æ˜¯ä¸ªæ ‡è®°  å¤ªå°¼ç›ä¹±äº†
 							if(num>0)
 							{
-								JOptionPane.showMessageDialog(null, "ĞŞ¸Ä³É¹¦");
+								JOptionPane.showMessageDialog(null, "ä¿®æ”¹æˆåŠŸ");
 							}else {
-								JOptionPane.showMessageDialog(null, "ĞŞ¸ÄÊ§°Ü");
+								JOptionPane.showMessageDialog(null, "ä¿®æ”¹å¤±è´¥");
 							}
 						}else {
-							JOptionPane.showMessageDialog(null, "ÃÜÂë´íÎó");
+							JOptionPane.showMessageDialog(null, "å¯†ç é”™è¯¯");
 						}
 					}else {
-						JOptionPane.showMessageDialog(null, "Á½´ÎÃÜÂë²»Ò»ÖÂ");
+						JOptionPane.showMessageDialog(null, "ä¸¤æ¬¡å¯†ç ä¸ä¸€è‡´");
 					}
-				}else {//ĞŞ¸Ä·ÇÑ§ÉúÃÜÂë
+				}else {//ä¿®æ”¹éå­¦ç”Ÿå¯†ç 
 					if(textNewPass.getText().equals(textAgain.getText()))
 					{
 						if(textOldPss.getText().equals(password))
@@ -95,15 +95,15 @@ public class UpdatePass extends JPanel {
 							int num=uAction.updatePass(username,newPass);
 							if(num>0)
 							{
-								JOptionPane.showMessageDialog(null, "ĞŞ¸Ä³É¹¦");
+								JOptionPane.showMessageDialog(null, "ä¿®æ”¹æˆåŠŸ");
 							}else {
-								JOptionPane.showMessageDialog(null, "ĞŞ¸ÄÊ§°Ü");
+								JOptionPane.showMessageDialog(null, "ä¿®æ”¹å¤±è´¥");
 							}
 						}else {
-							JOptionPane.showMessageDialog(null, "ÃÜÂë´íÎó");
+							JOptionPane.showMessageDialog(null, "å¯†ç é”™è¯¯");
 						}
 					}else {
-						JOptionPane.showMessageDialog(null, "Á½´ÎÃÜÂë²»Ò»ÖÂ");
+						JOptionPane.showMessageDialog(null, "ä¸¤æ¬¡å¯†ç ä¸ä¸€è‡´");
 					}
 				}
 			}

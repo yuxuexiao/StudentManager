@@ -60,12 +60,12 @@ public class LoginFrame extends JFrame {
 		setContentPane(contentPane);
 		setVisible(true);
 		JLabel label = new JLabel("\u6B22\u8FCE\u4F7F\u7528\u5927\u5B66\u751F\u7BA1\u7406\u7CFB\u7EDF");
-		label.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 21));
+		label.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 21));
 		label.setBounds(117, 10, 257, 31);
 		contentPane.add(label);
 		
 		JLabel lblUsername = new JLabel("\u7528\u6237\u540D");
-		lblUsername.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 14));
+		lblUsername.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 14));
 		lblUsername.setBounds(47, 66, 54, 15);
 		contentPane.add(lblUsername);
 		
@@ -75,7 +75,7 @@ public class LoginFrame extends JFrame {
 		textUsername.setColumns(10);
 		
 		JLabel labelPassword = new JLabel("\u5BC6\u7801");
-		labelPassword.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 14));
+		labelPassword.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 14));
 		labelPassword.setBounds(59, 108, 35, 15);
 		contentPane.add(labelPassword);
 		
@@ -104,7 +104,7 @@ public class LoginFrame extends JFrame {
 		contentPane.add(comboRole);
 		
 		JLabel lblCheckCode = new JLabel("\u9A8C\u8BC1\u7801");
-		lblCheckCode.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 14));
+		lblCheckCode.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 14));
 		lblCheckCode.setBounds(47, 144, 45, 15);
 		contentPane.add(lblCheckCode);
 		
@@ -143,29 +143,29 @@ public class LoginFrame extends JFrame {
 				bean.setUsername(textUsername.getText());
 				bean.setPassword(new String(passwordField.getPassword()));
 				String role=comboRole.getSelectedItem()+"";
-				if(role.equals("Ñ§Éú"))
+				if(role.equals("å­¦ç”Ÿ"))
 				{
 					bean.setRid(1);
 				}
-				if(role.equals("¸¨µ¼Ô±"))
+				if(role.equals("è¾…å¯¼å‘˜"))
 				{
 					bean.setRid(2);
 				}
-				if(role.equals("¾ÍÒµÖ¸µ¼ÖĞĞÄ"))
+				if(role.equals("å°±ä¸šæŒ‡å¯¼ä¸­å¿ƒ"))
 				{
 					bean.setRid(3);
 				}
-				if(role.equals("¹ÜÀíÔ±"))
+				if(role.equals("ç®¡ç†å‘˜"))
 				{
 					bean.setRid(4);
 				}
-				StudentMainFrame.uBean=bean;//½«µÇÂ½ĞÅÏ¢´«µ½Ö÷½çÃæ
+				StudentMainFrame.uBean=bean;//å°†ç™»é™†ä¿¡æ¯ä¼ åˆ°ä¸»ç•Œé¢
 				
-				//ÅĞ¶ÏÊÇ·ñÎªÑ§Éú
+				//åˆ¤æ–­æ˜¯å¦ä¸ºå­¦ç”Ÿ
 //				
-//				int rid=rAction.getRid(role);//»ñÈ¡id
+//				int rid=rAction.getRid(role);//è·å–id
 //				int ridStudent=sAction.geStudentOne();
-				//¿É¿ØÖÆÈ¨ÏŞ·â×°
+				//å¯æ§åˆ¶æƒé™å°è£…
 			
 				
 				
@@ -173,10 +173,10 @@ public class LoginFrame extends JFrame {
 				if (check.getCode().equalsIgnoreCase(textCheckCode.getText())) {
 					if (uka.userKey(bean) != null || (sAction.studentLogin(bean) != null && bean.getRid() == 1)) {
 						SelectStudent.autBean = uka.getControlAut(bean);
-						if (bean.getRid() == 1)// ÅĞ¶ÏÑ§ÉúÊÇ·ñĞèÒªĞŞ¸ÄÃÜÂëºÍÎÊ¾íµ÷²é;
+						if (bean.getRid() == 1)// åˆ¤æ–­å­¦ç”Ÿæ˜¯å¦éœ€è¦ä¿®æ”¹å¯†ç å’Œé—®å·è°ƒæŸ¥;
 						{
 							int question = sAction.getQuestion(bean.getUsername());
-							if (question == 1) {// µ¯³öĞŞ¸ÄÃÜÂë
+							if (question == 1) {// å¼¹å‡ºä¿®æ”¹å¯†ç 
 								dispose();
 								LgoinPass loginP = new LgoinPass(bean.getUsername(), bean.getPassword(), 1);
 								return;
@@ -185,26 +185,26 @@ public class LoginFrame extends JFrame {
 								dispose();
 								LoginQuestion loginQ=new LoginQuestion(bean.getUsername());
 								return;
-								// µ¯³öµ÷²éÎÊ¾í
+								// å¼¹å‡ºè°ƒæŸ¥é—®å·
 							} else {
-								JOptionPane.showMessageDialog(null, "µÇÂ¼³É¹¦");
+								JOptionPane.showMessageDialog(null, "ç™»å½•æˆåŠŸ");
 								StudentMainFrame smf = new StudentMainFrame();
 								smf.setVisible(true);
 								dispose();
 							}
 						} else {
 
-							JOptionPane.showMessageDialog(null, "µÇÂ¼³É¹¦");
+							JOptionPane.showMessageDialog(null, "ç™»å½•æˆåŠŸ");
 							StudentMainFrame smf = new StudentMainFrame();
 							smf.setVisible(true);
 							dispose();
 						}
 					} else {
-						JOptionPane.showMessageDialog(null, "ÕËºÅ»òÃÜÂë´íÎó");
+						JOptionPane.showMessageDialog(null, "è´¦å·æˆ–å¯†ç é”™è¯¯");
 					}
 				} else {
 
-					JOptionPane.showMessageDialog(null, "ÑéÖ¤Âë´íÎó");
+					JOptionPane.showMessageDialog(null, "éªŒè¯ç é”™è¯¯");
 				}
 			}
 		});

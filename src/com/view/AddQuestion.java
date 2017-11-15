@@ -37,7 +37,7 @@ public class AddQuestion extends JPanel {
 		this.setLayout(null);
 		
 		JLabel lblAddQuestion = new JLabel("\u6DFB\u52A0\u9898\u5E93\u4FE1\u606F");
-		lblAddQuestion.setFont(new Font("Œ¢»Ì—≈∫⁄", Font.PLAIN, 24));
+		lblAddQuestion.setFont(new Font("ÂæÆËΩØÈõÖÈªë", Font.PLAIN, 24));
 		lblAddQuestion.setBounds(236, 24, 221, 49);
 		add(lblAddQuestion);
 		
@@ -53,15 +53,15 @@ public class AddQuestion extends JPanel {
 		JButton btnAddQ = new JButton("\u6DFB\u52A0");
 		btnAddQ.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int n=JOptionPane.showConfirmDialog(null, "»∑»œÃÌº”","ÃÌº”Œ Ã‚",JOptionPane.OK_CANCEL_OPTION);
+				int n=JOptionPane.showConfirmDialog(null, "Á°ÆËÆ§Ê∑ªÂä†","Ê∑ªÂä†ÈóÆÈ¢ò",JOptionPane.OK_CANCEL_OPTION);
 				if(n==0)
 				{
 				int num=qAction.addQuestionOne(textAddQ.getText());
 				if(num>0)
 				{
-					JOptionPane.showMessageDialog(null, "ÃÌº”≥…π¶");
+					JOptionPane.showMessageDialog(null, "Ê∑ªÂä†ÊàêÂäü");
 				}else {
-					JOptionPane.showMessageDialog(null, "ÃÌº” ß∞‹");
+					JOptionPane.showMessageDialog(null, "Ê∑ªÂä†Â§±Ë¥•");
 				}
 				}
 			}
@@ -116,19 +116,19 @@ public class AddQuestion extends JPanel {
 							int result=qAction.relevance(qid,aid);
 							if(result>0)
 							{
-								JOptionPane.showMessageDialog(null, "ÃÌº”≥…π¶");
+								JOptionPane.showMessageDialog(null, "Ê∑ªÂä†ÊàêÂäü");
 								initTable(comboBoxQ.getSelectedItem()+"");
 							}else {
-								JOptionPane.showMessageDialog(null, "ÃÌº” ß∞‹");
+								JOptionPane.showMessageDialog(null, "Ê∑ªÂä†Â§±Ë¥•");
 							}
 						}else {
-							JOptionPane.showMessageDialog(null, "ÃÌº” ß∞‹");
+							JOptionPane.showMessageDialog(null, "Ê∑ªÂä†Â§±Ë¥•");
 						}
 					}else {
-						JOptionPane.showMessageDialog(null, "ÃÌº” ß∞‹");
+						JOptionPane.showMessageDialog(null, "Ê∑ªÂä†Â§±Ë¥•");
 					}
 				}else {
-					JOptionPane.showMessageDialog(null, "ÃÌº” ß∞‹");
+					JOptionPane.showMessageDialog(null, "Ê∑ªÂä†Â§±Ë¥•");
 				}
 				
 				
@@ -158,8 +158,8 @@ public class AddQuestion extends JPanel {
 	private void initTable(String question)
 	{
 		Vector header=new Vector();
-		header.add("±‡∫≈");
-		header.add("¥∞∏");
+		header.add("ÁºñÂè∑");
+		header.add("Á≠îÊ°à");
 		Vector<Vector> data=new Vector<Vector>();
 		Vector<Integer> aid=qAction.getAidByQuestion(question);
 		data=qAction.getAnswerByAid(aid);

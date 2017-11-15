@@ -86,9 +86,9 @@ public class AuthorityPanel extends JPanel {
 		
 		Vector<Vector> data = uka.getRoot();
 		Vector header = new Vector();
-		header.add("ĞòºÅ");
-		header.add("ÓÃ»§Ãû");
-		header.add("ÃÜÂë");
+		header.add("åºå·");
+		header.add("ç”¨æˆ·å");
+		header.add("å¯†ç ");
 		header.add("");
 		header.add("");
 		DefaultTableModel dtm = new DefaultTableModel(data, header);
@@ -100,26 +100,26 @@ public class AuthorityPanel extends JPanel {
 				int column = tableRoot.getSelectedColumn();
 				int id = (int) tableRoot.getValueAt(row, 0);
 				if (column == 3) {
-					int num = JOptionPane.showConfirmDialog(null, "È·ÈÏÖØÖÃ", "ÖØÖÃÃÜÂë", JOptionPane.OK_CANCEL_OPTION);
+					int num = JOptionPane.showConfirmDialog(null, "ç¡®è®¤é‡ç½®", "é‡ç½®å¯†ç ", JOptionPane.OK_CANCEL_OPTION);
 					if (num == 0) {
 						int rs1 = uka.initPassRoot(id);
 						if (rs1 > 0) {
-							JOptionPane.showMessageDialog(null, "³É¹¦ÖØÖÃÃÜÂë");
+							JOptionPane.showMessageDialog(null, "æˆåŠŸé‡ç½®å¯†ç ");
 							initRoot();
 						} else {
-							JOptionPane.showMessageDialog(null, "ÖØÖÃÊ§°Ü");
+							JOptionPane.showMessageDialog(null, "é‡ç½®å¤±è´¥");
 						}
 					}
 				}
 				if (column == 4) {
-					int num = JOptionPane.showConfirmDialog(null, "È·ÈÏÉ¾³ı", "É¾³ıÓÃ»§", JOptionPane.OK_CANCEL_OPTION);
+					int num = JOptionPane.showConfirmDialog(null, "ç¡®è®¤åˆ é™¤", "åˆ é™¤ç”¨æˆ·", JOptionPane.OK_CANCEL_OPTION);
 					if (num == 0) {
 						int rs2 = uka.delRoot(id);
 						if (rs2 > 0) {
-							JOptionPane.showMessageDialog(null, "³É¹¦É¾³ıÓÃ»§");
+							JOptionPane.showMessageDialog(null, "æˆåŠŸåˆ é™¤ç”¨æˆ·");
 							initRoot();
 						} else {
-							JOptionPane.showMessageDialog(null, "É¾³ıÊ§°Ü");
+							JOptionPane.showMessageDialog(null, "åˆ é™¤å¤±è´¥");
 						}
 					}
 				}
@@ -131,9 +131,9 @@ public class AuthorityPanel extends JPanel {
 	{
 		Vector<Vector> data=uka.getTeacher();
 		Vector header=new Vector();
-		header.add("ĞòºÅ");
-		header.add("ÓÃ»§Ãû");
-		header.add("ÃÜÂë");
+		header.add("åºå·");
+		header.add("ç”¨æˆ·å");
+		header.add("å¯†ç ");
 		header.add("");
 		header.add("");
 		header.add("");
@@ -147,35 +147,35 @@ public class AuthorityPanel extends JPanel {
 				int id=(int)tableTeacher.getValueAt(row, 0);
 				if(column==3)
 				{
-					JOptionPane.showMessageDialog(null, "½øÈëÈ¨ÏŞ·ÖÅä");
+					JOptionPane.showMessageDialog(null, "è¿›å…¥æƒé™åˆ†é…");
 					AuthorityDialog ad=new AuthorityDialog(id);
 				}
 				if(column==4)
 				{
-					int num=JOptionPane.showConfirmDialog(null,"È·ÈÏÖØÖÃ","ÖØÖÃÃÜÂë",JOptionPane.OK_CANCEL_OPTION);
+					int num=JOptionPane.showConfirmDialog(null,"ç¡®è®¤é‡ç½®","é‡ç½®å¯†ç ",JOptionPane.OK_CANCEL_OPTION);
 					if(num==0) {
 						int rs1=uka.initPassRoot(id);
 						if(rs1>0)
 						{
-							JOptionPane.showMessageDialog(null, "³É¹¦ÖØÖÃÓÃ»§ÃÜÂë");
+							JOptionPane.showMessageDialog(null, "æˆåŠŸé‡ç½®ç”¨æˆ·å¯†ç ");
 							initTeacher();
 						}else {
-							JOptionPane.showMessageDialog(null, "ÖØÖÃÊ§°Ü,Çë»ØÂ¯ÖØÔì");
+							JOptionPane.showMessageDialog(null, "é‡ç½®å¤±è´¥,è¯·å›ç‚‰é‡é€ ");
 						}
 					}
 				}
 				if(column==5)
 				{
-					int num=JOptionPane.showConfirmDialog(null,"È·ÈÏÉ¾³ı","É¾³ıÓÃ»§",JOptionPane.OK_CANCEL_OPTION);
+					int num=JOptionPane.showConfirmDialog(null,"ç¡®è®¤åˆ é™¤","åˆ é™¤ç”¨æˆ·",JOptionPane.OK_CANCEL_OPTION);
 					if(num==0)
 					{
 						int rs2=uka.delRoot(id);
 						if(rs2>0)
 						{
-							JOptionPane.showMessageDialog(null, "³É¹¦É¾³ıÓÃ»§");
+							JOptionPane.showMessageDialog(null, "æˆåŠŸåˆ é™¤ç”¨æˆ·");
 							initTeacher();
 						}else {
-							JOptionPane.showMessageDialog(null, "É¾³ıÊ§°Ü,Çë»ØÂ¯ÖØÔì");
+							JOptionPane.showMessageDialog(null, "åˆ é™¤å¤±è´¥,è¯·å›ç‚‰é‡é€ ");
 						}
 					}
 				}
@@ -196,9 +196,9 @@ public class AuthorityPanel extends JPanel {
 //			}
 //		}
 		Vector header=new Vector();
-		header.add("Ñ§ºÅ");
-		header.add("ĞÕÃû");
-		header.add("×¨Òµ");
+		header.add("å­¦å·");
+		header.add("å§“å");
+		header.add("ä¸“ä¸š");
 		header.add("");
 		DefaultTableModel dtm=new DefaultTableModel(data,header);
 		tableStudent = new JTable(dtm);
@@ -208,15 +208,15 @@ public class AuthorityPanel extends JPanel {
 				int row=tableStudent.getSelectedRow();
 				int column=tableStudent.getSelectedColumn();
 				String values=tableStudent.getValueAt(row, 0)+"";
-				int num=JOptionPane.showConfirmDialog(null, "È·ÈÏÖØÖÃ","ÖØÖÃÃÜÂë",JOptionPane.OK_CANCEL_OPTION);
+				int num=JOptionPane.showConfirmDialog(null, "ç¡®è®¤é‡ç½®","é‡ç½®å¯†ç ",JOptionPane.OK_CANCEL_OPTION);
 				if(num==0)
 				{
 					int n=uka.initStudentPass(values);
 					if(n>0)
 					{
-						JOptionPane.showMessageDialog(null, "ÖØÖÃ³É¹¦");
+						JOptionPane.showMessageDialog(null, "é‡ç½®æˆåŠŸ");
 					}else {
-						JOptionPane.showMessageDialog(null, "ÖØÖÃÊ§°Ü");
+						JOptionPane.showMessageDialog(null, "é‡ç½®å¤±è´¥");
 					}
 				}
 			}

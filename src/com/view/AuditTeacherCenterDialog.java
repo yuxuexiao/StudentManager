@@ -358,8 +358,8 @@ public class AuditTeacherCenterDialog extends JDialog {
 		
 		JComboBox comboAudit = new JComboBox();
 		comboAudit.setBounds(649, 318, 77, 21);
-		comboAudit.addItem("≤ªÕ®π˝");
-		comboAudit.addItem("Õ®π˝");
+		comboAudit.addItem("‰∏çÈÄöËøá");
+		comboAudit.addItem("ÈÄöËøá");
 		contentPanel.add(comboAudit);
 		
 		JLabel labAudit = new JLabel("\u5BA1\u6838");
@@ -381,8 +381,8 @@ public class AuditTeacherCenterDialog extends JDialog {
 						int audit=0;
 						if(rid==2)
 						{
-//						String tempStudent[]=aAction.tempStudent(values,reason,1);//Õ®π˝—ß∫≈ªÒ»°—ß…˙–≈œ¢¥Ê»Î ˝◊È
-						if("≤ªÕ®π˝".equals(comboAudit.getSelectedItem()))
+//						String tempStudent[]=aAction.tempStudent(values,reason,1);//ÈÄöËøáÂ≠¶Âè∑Ëé∑ÂèñÂ≠¶Áîü‰ø°ÊÅØÂ≠òÂÖ•Êï∞ÁªÑ
+						if("‰∏çÈÄöËøá".equals(comboAudit.getSelectedItem()))
 						{
 							audit=1;
 //							tempStudent[34]=String.valueOf(1);
@@ -396,26 +396,26 @@ public class AuditTeacherCenterDialog extends JDialog {
 								e1.printStackTrace();
 							}
 						}
-						if("Õ®π˝".equals(comboAudit.getSelectedItem()))
+						if("ÈÄöËøá".equals(comboAudit.getSelectedItem()))
 						{
 							audit=3;
 							reason="";
 						}
 						System.out.println(audit);
-						int num=aAction.updateStudentTeacher(values,reason,audit);//…Û∫À
+						int num=aAction.updateStudentTeacher(values,reason,audit);//ÂÆ°Ê†∏
 						if(num>0)
 						{
 							
-							JOptionPane.showMessageDialog(null, "…Û∫À≥…π¶");
+							JOptionPane.showMessageDialog(null, "ÂÆ°Ê†∏ÊàêÂäü");
 							dispose();
 						}else {
-							JOptionPane.showMessageDialog(null, "…Û∫À ß∞‹");
+							JOptionPane.showMessageDialog(null, "ÂÆ°Ê†∏Â§±Ë¥•");
 						}
 					}
 						if(rid==3)
 						{
-//							String tempStudent[]=aAction.tempStudent(values);//Õ®π˝—ß∫≈ªÒ»°—ß…˙–≈œ¢¥Ê»Î ˝◊È
-							if("≤ªÕ®π˝".equals(comboAudit.getSelectedItem()))
+//							String tempStudent[]=aAction.tempStudent(values);//ÈÄöËøáÂ≠¶Âè∑Ëé∑ÂèñÂ≠¶Áîü‰ø°ÊÅØÂ≠òÂÖ•Êï∞ÁªÑ
+							if("‰∏çÈÄöËøá".equals(comboAudit.getSelectedItem()))
 							{
 								
 //								tempStudent[34]=String.valueOf(1);
@@ -430,7 +430,7 @@ public class AuditTeacherCenterDialog extends JDialog {
 									e1.printStackTrace();
 								}
 							}
-							if("Õ®π˝".equals(comboAudit.getSelectedItem()))
+							if("ÈÄöËøá".equals(comboAudit.getSelectedItem()))
 							{
 								
 //								tempStudent[34]=String.valueOf(4);
@@ -439,21 +439,21 @@ public class AuditTeacherCenterDialog extends JDialog {
 								reason="";
 							}
 							
-							int num=aAction.updateStudentTeacher(values,reason,audit);//…æ≥˝—ß…˙∫ÛÕ®π˝…œ√ÊªÒ»°µƒ ˝◊È÷ÿ–¬≤Â»Î—ß…˙
+							int num=aAction.updateStudentTeacher(values,reason,audit);//Âà†Èô§Â≠¶ÁîüÂêéÈÄöËøá‰∏äÈù¢Ëé∑ÂèñÁöÑÊï∞ÁªÑÈáçÊñ∞ÊèíÂÖ•Â≠¶Áîü
 							
 							
 							if(num>0)
 							{
 								
-								JOptionPane.showMessageDialog(null, "…Û∫À≥…π¶");
+								JOptionPane.showMessageDialog(null, "ÂÆ°Ê†∏ÊàêÂäü");
 								dispose();
 							}else {
-								JOptionPane.showMessageDialog(null, "…Û∫À ß∞‹");
+								JOptionPane.showMessageDialog(null, "ÂÆ°Ê†∏Â§±Ë¥•");
 							}
 						}
 					}
 				});
-				okButton.setActionCommand("»∑»œ–≈œ¢");
+				okButton.setActionCommand("Á°ÆËÆ§‰ø°ÊÅØ");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}

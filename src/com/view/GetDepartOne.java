@@ -29,7 +29,7 @@ public class GetDepartOne extends JDialog {
 	DepartmentAction dAction=new DepartmentAction();
 	JScrollPane scrollPane = null;
 	int size=0;
-	//¶ÔÓ¦±íËùÑ¡ÔºÏµ¶Ô»°¿ò
+	//å¯¹åº”è¡¨æ‰€é€‰é™¢ç³»å¯¹è¯æ¡†
 	/**
 	 * Create the dialog.
 	 * @param NG 
@@ -55,14 +55,14 @@ public class GetDepartOne extends JDialog {
 						del.add(table.getValueAt(i, 1));
 						delBatch.add(del);
 					}
-					int num=JOptionPane.showConfirmDialog(null,"È·ÈÏÉ¾³ı","ÅúÁ¿É¾³ı",JOptionPane.OK_CANCEL_OPTION);
+					int num=JOptionPane.showConfirmDialog(null,"ç¡®è®¤åˆ é™¤","æ‰¹é‡åˆ é™¤",JOptionPane.OK_CANCEL_OPTION);
 					if(num==0) {
 						int n=dAction.delBatchProfession(delBatch);
 						if(n>0) {
-							JOptionPane.showMessageDialog(null, "É¾³ı³É¹¦");
+							JOptionPane.showMessageDialog(null, "åˆ é™¤æˆåŠŸ");
 							initTable(value,NG);
 						}else {
-							JOptionPane.showMessageDialog(null, "É¾³ıÊ§°Ü");
+							JOptionPane.showMessageDialog(null, "åˆ é™¤å¤±è´¥");
 						}
 					}
 				}
@@ -85,12 +85,12 @@ public class GetDepartOne extends JDialog {
 		size=data.size();
 		System.out.println(size);
 		Vector header = new Vector();
-		header.add("È«Ñ¡/·´Ñ¡");
-		header.add("ĞòºÅ");
-		header.add("´úÂë");
-		header.add("×¨Òµ");
-		header.add("ĞŞ¸Ä");
-		header.add("É¾³ı");
+		header.add("å…¨é€‰/åé€‰");
+		header.add("åºå·");
+		header.add("ä»£ç ");
+		header.add("ä¸“ä¸š");
+		header.add("ä¿®æ”¹");
+		header.add("åˆ é™¤");
 		CheckTableModle tableModel = new CheckTableModle(data, header);
 		table = new JTable(tableModel);
 		table.addMouseListener(new MouseAdapter() {
@@ -102,29 +102,29 @@ public class GetDepartOne extends JDialog {
 				String code = (String) table.getValueAt(row, 2);
 				String profession = (String) table.getValueAt(row, 3);
 				if (column == 4) {
-					int num = JOptionPane.showConfirmDialog(null, "ÊÇ·ñÈ·ÈÏĞŞ¸Ä", "ĞŞ¸Ä×¨Òµ", JOptionPane.OK_CANCEL_OPTION);
+					int num = JOptionPane.showConfirmDialog(null, "æ˜¯å¦ç¡®è®¤ä¿®æ”¹", "ä¿®æ”¹ä¸“ä¸š", JOptionPane.OK_CANCEL_OPTION);
 					if (num == 0) {
 						int n = dAction.updateDepartOne(id, code, profession);
 						if (n > 0) {
 
-							JOptionPane.showMessageDialog(null, "ĞŞ¸Ä³É¹¦");
+							JOptionPane.showMessageDialog(null, "ä¿®æ”¹æˆåŠŸ");
 							initTable(val, ng);
 						} else {
-							JOptionPane.showMessageDialog(null, "ĞŞ¸ÄÊ§°Ü");
+							JOptionPane.showMessageDialog(null, "ä¿®æ”¹å¤±è´¥");
 						}
 					}
 				}
 				if (column == 5) {
-					int num = JOptionPane.showConfirmDialog(null, "ÊÇ·ñÉ¾³ı×¨Òµ", "É¾³ı×¨Òµ", JOptionPane.OK_CANCEL_OPTION);
+					int num = JOptionPane.showConfirmDialog(null, "æ˜¯å¦åˆ é™¤ä¸“ä¸š", "åˆ é™¤ä¸“ä¸š", JOptionPane.OK_CANCEL_OPTION);
 					if (num == 0) {
 						int n = dAction.delDepartOne(id);
 						if (n > 0) {
 							System.out.println(1111111111);
-							JOptionPane.showMessageDialog(null, "É¾³ı³É¹¦");
+							JOptionPane.showMessageDialog(null, "åˆ é™¤æˆåŠŸ");
 							initTable(val, ng);
 
 						} else {
-							JOptionPane.showMessageDialog(null, "É¾³ıÊ§°Ü");
+							JOptionPane.showMessageDialog(null, "åˆ é™¤å¤±è´¥");
 						}
 					}
 				}

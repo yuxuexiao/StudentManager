@@ -58,7 +58,7 @@ public class DepartmentDao {
 				for(String str:listD)
 				{
 					String sql="select prfscode,department,profession,education from student2 where "
-					+ "education in('专科','本科') "
+					+ "education in('涓撶','鏈') "
 					+ "and department='"+str+"' "
 							+ "group by profession";
 					rs=stat.executeQuery(sql);
@@ -98,7 +98,7 @@ public class DepartmentDao {
 				for(String str:listD)
 				{
 					String sql="select prfscode,department,profession,education from student2 where "
-					+ "education in('硕士','博士') "
+					+ "education in('纭曞＋','鍗氬＋') "
 					+ "and department='"+str+"' "
 							+ "group by profession";
 					rs=stat.executeQuery(sql);
@@ -215,7 +215,7 @@ public class DepartmentDao {
 					
 					Vector v=new Vector();
 					
-					sql1="select profession from department where education in('本科','专科') and department='"+str+"'";
+					sql1="select profession from department where education in('鏈','涓撶') and department='"+str+"'";
 					rs1=stat1.executeQuery(sql1);
 					while(rs1.next())
 					{
@@ -225,7 +225,7 @@ public class DepartmentDao {
 					
 					
 					String graduation="";
-					sql2="select profession from department where education in('硕士','博士') and department='"+str+"'";
+					sql2="select profession from department where education in('纭曞＋','鍗氬＋') and department='"+str+"'";
 					rs2=stat2.executeQuery(sql2);
 					while(rs2.next())
 					{
@@ -236,9 +236,9 @@ public class DepartmentDao {
 					v.add(i);
 					v.add(str);
 					v.add(normal);
-					v.add("详细");
+					v.add("璇︾粏");
 					v.add(graduation);
-					v.add("详细");
+					v.add("璇︾粏");
 					vector.add(v);
 				}
 				}
@@ -274,8 +274,8 @@ public class DepartmentDao {
 				
 				v.add(rs.getString("profession"));
 				
-				v.add("修改");
-				v.add("删除");
+				v.add("淇敼");
+				v.add("鍒犻櫎");
 				vector.add(v);
 			}
 		}catch(Exception e)

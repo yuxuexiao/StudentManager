@@ -44,12 +44,12 @@ public class LgoinPass extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		
 		JLabel lblNewLabel = new JLabel("\u5B66\u751F\u5BC6\u7801\u4FEE\u6539");
-		lblNewLabel.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 27));
+		lblNewLabel.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 27));
 		lblNewLabel.setBounds(163, 10, 277, 62);
 		contentPanel.add(lblNewLabel);
 		
 		JLabel lblOldPass = new JLabel("\u539F\u5BC6\u7801");
-		lblOldPass.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 15));
+		lblOldPass.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 15));
 		lblOldPass.setBounds(126, 87, 70, 25);
 		contentPanel.add(lblOldPass);
 		
@@ -59,7 +59,7 @@ public class LgoinPass extends JDialog {
 		textOldPass.setColumns(10);
 		
 		JLabel labelNewPass = new JLabel("\u65B0\u5BC6\u7801");
-		labelNewPass.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 15));
+		labelNewPass.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 15));
 		labelNewPass.setBounds(126, 132, 70, 25);
 		contentPanel.add(labelNewPass);
 		
@@ -69,7 +69,7 @@ public class LgoinPass extends JDialog {
 		contentPanel.add(textNewPass);
 		
 		JLabel labAgain = new JLabel("\u518D\u6B21\u8F93\u5165");
-		labAgain.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 15));
+		labAgain.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 15));
 		labAgain.setBounds(126, 186, 70, 25);
 		contentPanel.add(labAgain);
 		
@@ -83,38 +83,38 @@ public class LgoinPass extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				String newPass=textNewPass.getText();
 				
-				if(rid==1)//ĞŞ¸ÄÑ§ÉúÃÜÂë
+				if(rid==1)//ä¿®æ”¹å­¦ç”Ÿå¯†ç 
 				{
 					if(textNewPass.getText().equals(textPassAgain.getText()))
 					{
 						if(textOldPass.getText().equals(password))
 						{
-							int num=sAction.updatePassStudent(username,newPass);//ÕâÊÇ¸ö±ê¼Ç  Ì«ÄáÂêÂÒÁË
+							int num=sAction.updatePassStudent(username,newPass);//è¿™æ˜¯ä¸ªæ ‡è®°  å¤ªå°¼ç›ä¹±äº†
 							
 							if(num>0)
 							{
 								int rs=sAction.updateStudentQuestion(username,2);
 								if(rs>0)
 								{
-									JOptionPane.showMessageDialog(null, "ĞŞ¸Ä³É¹¦");
+									JOptionPane.showMessageDialog(null, "ä¿®æ”¹æˆåŠŸ");
 									dispose();
 									LoginFrame lFrame=new LoginFrame();
 								}else {
-									JOptionPane.showMessageDialog(null, "ĞŞ¸ÄÊ§°Ü");
+									JOptionPane.showMessageDialog(null, "ä¿®æ”¹å¤±è´¥");
 								}
 							}else {
-								JOptionPane.showMessageDialog(null, "ĞŞ¸ÄÊ§°Ü");
+								JOptionPane.showMessageDialog(null, "ä¿®æ”¹å¤±è´¥");
 							}
 						}else {
-							JOptionPane.showMessageDialog(null, "ÃÜÂë´íÎó");
+							JOptionPane.showMessageDialog(null, "å¯†ç é”™è¯¯");
 						}
 					}else {
-						JOptionPane.showMessageDialog(null, "Á½´ÎÃÜÂë²»Ò»ÖÂ");
+						JOptionPane.showMessageDialog(null, "ä¸¤æ¬¡å¯†ç ä¸ä¸€è‡´");
 					}
 				}
 			}
 		});
-		btnNewButton.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 12));
+		btnNewButton.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 12));
 		btnNewButton.setBounds(205, 258, 93, 23);
 		contentPanel.add(btnNewButton);
 		contentPanel.setVisible(true);

@@ -25,7 +25,7 @@ public class ExcelOperate {
 
 		try {
 
-			File file = new File("≥£”√µ•Œª.xls");
+			File file = new File("Â∏∏Áî®Âçï‰Ωç.xls");
 			String[][] result = getData(file, 1);
 			int rowLength = result.length;
 			for (int i = 0; i < rowLength; i++) {
@@ -42,13 +42,13 @@ public class ExcelOperate {
 	}
 
 	/**
-	 * ∂¡»°Excelµƒƒ⁄»›£¨µ⁄“ªŒ¨ ˝◊È¥Ê¥¢µƒ «“ª––÷–∏Ò¡–µƒ÷µ£¨∂˛Œ¨ ˝◊È¥Ê¥¢µƒ «∂‡…Ÿ∏ˆ––
+	 * ËØªÂèñExcelÁöÑÂÜÖÂÆπÔºåÁ¨¨‰∏ÄÁª¥Êï∞ÁªÑÂ≠òÂÇ®ÁöÑÊòØ‰∏ÄË°å‰∏≠Ê†ºÂàóÁöÑÂÄºÔºå‰∫åÁª¥Êï∞ÁªÑÂ≠òÂÇ®ÁöÑÊòØÂ§öÂ∞ë‰∏™Ë°å
 	 * 
 	 * @param file
-	 *            ∂¡»° ˝æ›µƒ‘¥Excel
+	 *            ËØªÂèñÊï∞ÊçÆÁöÑÊ∫êExcel
 	 * @param ignoreRows
-	 *            ∂¡»° ˝æ›∫ˆ¬‘µƒ–– ˝£¨±»”˜––Õ∑≤ª–Ë“™∂¡»Î ∫ˆ¬‘µƒ–– ˝Œ™1
-	 * @return ∂¡≥ˆµƒExcel÷– ˝æ›µƒƒ⁄»›
+	 *            ËØªÂèñÊï∞ÊçÆÂøΩÁï•ÁöÑË°åÊï∞ÔºåÊØîÂñªË°åÂ§¥‰∏çÈúÄË¶ÅËØªÂÖ• ÂøΩÁï•ÁöÑË°åÊï∞‰∏∫1
+	 * @return ËØªÂá∫ÁöÑExcel‰∏≠Êï∞ÊçÆÁöÑÂÜÖÂÆπ
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
@@ -58,13 +58,13 @@ public class ExcelOperate {
 		int rowSize = 0;
 		BufferedInputStream in = new BufferedInputStream(new FileInputStream(
 				file));
-		// ¥Úø™HSSFWorkbook
+		// ÊâìÂºÄHSSFWorkbook
 		POIFSFileSystem fs = new POIFSFileSystem(in);
 		HSSFWorkbook wb = new HSSFWorkbook(fs);
 		HSSFCell cell = null;
 		for (int sheetIndex = 0; sheetIndex < wb.getNumberOfSheets(); sheetIndex++) {
 			HSSFSheet st = wb.getSheetAt(sheetIndex);
-			// µ⁄“ª––Œ™±ÍÃ‚£¨≤ª»°
+			// Á¨¨‰∏ÄË°å‰∏∫Ê†áÈ¢òÔºå‰∏çÂèñ
 			for (int rowIndex = ignoreRows; rowIndex <= st.getLastRowNum(); rowIndex++) {
 				HSSFRow row = st.getRow(rowIndex);
 				if (row == null) {
@@ -81,7 +81,7 @@ public class ExcelOperate {
 					String value = "";
 					cell = row.getCell(columnIndex);
 					if (cell != null) {
-						// ◊¢“‚£∫“ª∂®“™…Ë≥…’‚∏ˆ£¨∑Ò‘Úø…ƒ‹ª·≥ˆœ÷¬“¬Î
+						// Ê≥®ÊÑèÔºö‰∏ÄÂÆöË¶ÅËÆæÊàêËøô‰∏™ÔºåÂê¶ÂàôÂèØËÉΩ‰ºöÂá∫Áé∞‰π±Á†Å
 						// cell.setEncoding(HSSFCell.ENCODING_UTF_16);
 						switch (cell.getCellType()) {
 						case HSSFCell.CELL_TYPE_STRING:
@@ -102,7 +102,7 @@ public class ExcelOperate {
 							}
 							break;
 						case HSSFCell.CELL_TYPE_FORMULA:
-							// µº»Î ±»Áπ˚Œ™π´ Ω…˙≥…µƒ ˝æ›‘ÚŒﬁ÷µ
+							// ÂØºÂÖ•Êó∂Â¶ÇÊûú‰∏∫ÂÖ¨ÂºèÁîüÊàêÁöÑÊï∞ÊçÆÂàôÊó†ÂÄº
 							if (!cell.getStringCellValue().equals("")) {
 								value = cell.getStringCellValue();
 							} else {
@@ -143,11 +143,11 @@ public class ExcelOperate {
 	}
 
 	/**
-	 * »•µÙ◊÷∑˚¥Æ”“±ﬂµƒø’∏Ò
+	 * ÂéªÊéâÂ≠óÁ¨¶‰∏≤Âè≥ËæπÁöÑÁ©∫Ê†º
 	 * 
 	 * @param str
-	 *            “™¥¶¿Ìµƒ◊÷∑˚¥Æ
-	 * @return ¥¶¿Ì∫Ûµƒ◊÷∑˚¥Æ
+	 *            Ë¶ÅÂ§ÑÁêÜÁöÑÂ≠óÁ¨¶‰∏≤
+	 * @return Â§ÑÁêÜÂêéÁöÑÂ≠óÁ¨¶‰∏≤
 	 */
 	public static String rightTrim(String str) {
 		if (str == null) {

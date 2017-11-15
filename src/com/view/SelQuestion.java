@@ -33,7 +33,7 @@ public class SelQuestion extends JPanel {
 		
 		
 		JLabel lblNewLabel = new JLabel("\u67E5\u770B\u9898\u5E93\u4FE1\u606F");
-		lblNewLabel.setFont(new Font("微软雅黑", Font.PLAIN, 30));
+		lblNewLabel.setFont(new Font("寰蒋闆呴粦", Font.PLAIN, 30));
 		lblNewLabel.setBounds(212, 10, 274, 66);
 		add(lblNewLabel);
 		initTable();
@@ -49,13 +49,13 @@ public class SelQuestion extends JPanel {
 			Vector v=new Vector();
 			v.add(bean.getId());
 			v.add(bean.getQuestion());
-			v.add("详情");
-			v.add("修改");
-			v.add("删除");
+			v.add("璇︽儏");
+			v.add("淇敼");
+			v.add("鍒犻櫎");
 			data.add(v);
 		}
-		header.add("编号");
-		header.add("问题");
+		header.add("缂栧彿");
+		header.add("闂");
 		header.add("");
 		header.add("");
 		header.add("");
@@ -74,31 +74,31 @@ public class SelQuestion extends JPanel {
 				}
 				if(column==3)
 				{
-					int num=JOptionPane.showConfirmDialog(null, "确认修改","修改问题",JOptionPane.OK_CANCEL_OPTION);
+					int num=JOptionPane.showConfirmDialog(null, "纭淇敼","淇敼闂",JOptionPane.OK_CANCEL_OPTION);
 					if(num==0)
 					{
 						int result=qAction.updateQuestion(value,question);
 						if(result>0)
 						{
-							JOptionPane.showMessageDialog(null, "修改成功");
+							JOptionPane.showMessageDialog(null, "淇敼鎴愬姛");
 							initTable();
 						}else {
-							JOptionPane.showMessageDialog(null, "修改失败");
+							JOptionPane.showMessageDialog(null, "淇敼澶辫触");
 						}
 					}
 				}
 				if(column==4)
 				{
-					int num=JOptionPane.showConfirmDialog(null, "确认删除","删除问题",JOptionPane.OK_CANCEL_OPTION);
+					int num=JOptionPane.showConfirmDialog(null, "纭鍒犻櫎","鍒犻櫎闂",JOptionPane.OK_CANCEL_OPTION);
 					if(num==0)
 					{
 						int result=qAction.delQuestion(value);
 						if(result>0)
 						{
-							JOptionPane.showMessageDialog(null, "删除成功");
+							JOptionPane.showMessageDialog(null, "鍒犻櫎鎴愬姛");
 							initTable();
 						}else {
-							JOptionPane.showMessageDialog(null, "删除失败");
+							JOptionPane.showMessageDialog(null, "鍒犻櫎澶辫触");
 						}
 					}
 				}

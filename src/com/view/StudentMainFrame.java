@@ -67,10 +67,10 @@ public class StudentMainFrame extends JFrame {
 		
 		JLabel labelStudent = new JLabel("\u6B22\u8FCE\u4F7F\u7528\u5927\u5B66\u751F\u7BA1\u7406\u7CFB\u7EDF");
 		labelStudent.setHorizontalAlignment(SwingConstants.CENTER);
-		labelStudent.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 18));
+		labelStudent.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 18));
 		panelTop.add(labelStudent,BorderLayout.NORTH);
 		
-		JLabel lblusename = new JLabel("ÓÃ»§Ãû:"+uBean.getUsername());
+		JLabel lblusename = new JLabel("ç”¨æˆ·å:"+uBean.getUsername());
 		panelTop.add(lblusename, BorderLayout.WEST);
 		
 		JButton button = new JButton("\u9000\u51FA\u767B\u5F55");
@@ -113,11 +113,11 @@ public class StudentMainFrame extends JFrame {
 
 		
 		
-		sidList=rsAction.getSid(uBean);//»ñÈ¡È¨ÏŞĞÅÏ¢
+		sidList=rsAction.getSid(uBean);//è·å–æƒé™ä¿¡æ¯
 		
 		
 		/**
-		 * ¼ÓÔØ×Ó½Úµã
+		 * åŠ è½½å­èŠ‚ç‚¹
 		 * 
 		 */
 		tree(root,1);
@@ -129,72 +129,72 @@ public class StudentMainFrame extends JFrame {
 		
 		tree.addTreeSelectionListener(new TreeSelectionListener() {
 			public void valueChanged(TreeSelectionEvent arg0) {
-				//»ñÈ¡×îºóÑ¡ÔñµÄÊ÷Ò¶
+				//è·å–æœ€åé€‰æ‹©çš„æ ‘å¶
 				
 				String value= tree.getLastSelectedPathComponent()+"";
-				String url=map.get(value);//µÃµ½Ê÷Ò¶Ëù¶ÔÓ¦Êı¾İ¿âÖĞ´æµÄµØÖ·
-				if("±¾¿ÆÉúĞÅÏ¢¹ÜÀí".equals(value))//»ñÈ¡¶ÔÓ¦Ñ§ÀúÑ§Éú±íÃû
+				String url=map.get(value);//å¾—åˆ°æ ‘å¶æ‰€å¯¹åº”æ•°æ®åº“ä¸­å­˜çš„åœ°å€
+				if("æœ¬ç§‘ç”Ÿä¿¡æ¯ç®¡ç†".equals(value))//è·å–å¯¹åº”å­¦å†å­¦ç”Ÿè¡¨å
 				{
-					SelectStudent.studentTableName="±¾¿Æ";
+					SelectStudent.studentTableName="æœ¬ç§‘";
 				}
-				if("Ë¶Ê¿ÉúĞÅÏ¢¹ÜÀí".equals(value))
+				if("ç¡•å£«ç”Ÿä¿¡æ¯ç®¡ç†".equals(value))
 				{
-					SelectStudent.studentTableName="Ë¶Ê¿";
+					SelectStudent.studentTableName="ç¡•å£«";
 				}
-				if("²©Ê¿ÉúĞÅÏ¢¹ÜÀí".equals(value))
+				if("åšå£«ç”Ÿä¿¡æ¯ç®¡ç†".equals(value))
 				{
-					SelectStudent.studentTableName="²©Ê¿";
+					SelectStudent.studentTableName="åšå£«";
 				}
-				if("×¨¿ÆÉúĞÅÏ¢¹ÜÀí".equals(value))
+				if("ä¸“ç§‘ç”Ÿä¿¡æ¯ç®¡ç†".equals(value))
 				{
-					SelectStudent.studentTableName="×¨¿Æ";
+					SelectStudent.studentTableName="ä¸“ç§‘";
 				}
 				
-				//¶¯Ì¬´úÂë¿â½çÃæÇĞ»»
-				if("±¾×¨¿Æ×¨Òµ´úÂë¿â".equals(value))
+				//åŠ¨æ€ä»£ç åº“ç•Œé¢åˆ‡æ¢
+				if("æœ¬ä¸“ç§‘ä¸“ä¸šä»£ç åº“".equals(value))
 				{
-					ImportCode.codeBean.setName("×¨Òµ");
+					ImportCode.codeBean.setName("ä¸“ä¸š");
 					ImportCode.codeBean.setTable("normalspecialty");
 					
 				}
-				if("Ãñ×å´úÂë¿â".equals(value))
+				if("æ°‘æ—ä»£ç åº“".equals(value))
 				{
-					ImportCode.codeBean.setName("Ãñ×å");
+					ImportCode.codeBean.setName("æ°‘æ—");
 					ImportCode.codeBean.setTable("nation");
 				}
-				if("ÅàÑø·½Ê½×¨Òµ´úÂë¿â".equals(value))
+				if("åŸ¹å…»æ–¹å¼ä¸“ä¸šä»£ç åº“".equals(value))
 				{
-					ImportCode.codeBean.setName("ÅàÑø·½Ê½");
+					ImportCode.codeBean.setName("åŸ¹å…»æ–¹å¼");
 					ImportCode.codeBean.setTable("trainingmode");
 				}
 				
-				if("Ñ§¼®±ä¶¯´úÂë¿â".equals(value))
+				if("å­¦ç±å˜åŠ¨ä»£ç åº“".equals(value))
 				{
-					ImportCode.codeBean.setName("Ñ§¼®±ä¶¯");
+					ImportCode.codeBean.setName("å­¦ç±å˜åŠ¨");
 					ImportCode.codeBean.setTable("statuschange");
 				}
 				
-				if("Ñ§ÉúÉúÔ´µØ´úÂë¿â".equals(value))
+				if("å­¦ç”Ÿç”Ÿæºåœ°ä»£ç åº“".equals(value))
 				{
-					ImportCode.codeBean.setName("ÉúÔ´µØ");
+					ImportCode.codeBean.setName("ç”Ÿæºåœ°");
 					ImportCode.codeBean.setTable("address");
 				}
 				
-				if("ÑĞ¾¿Éú×¨Òµ´úÂë¿â".equals(value))
+				if("ç ”ç©¶ç”Ÿä¸“ä¸šä»£ç åº“".equals(value))
 				{
-					ImportCode.codeBean.setName("×¨Òµ");
+					ImportCode.codeBean.setName("ä¸“ä¸š");
 					ImportCode.codeBean.setTable("graduateprogram");
 				}
 				
-				if("ÕşÖÎÃæÃ²´úÂë¿â".equals(value))
+				if("æ”¿æ²»é¢è²Œä»£ç åº“".equals(value))
 				{
-					ImportCode.codeBean.setName("ÕşÖÎÃæÃ²");
+					ImportCode.codeBean.setName("æ”¿æ²»é¢è²Œ");
 					ImportCode.codeBean.setTable("politicstatus");
 				}
 				
-				if("Ö÷ĞŞÓïÖÖ´úÂë¿â".equals(value))
+				if("ä¸»ä¿®è¯­ç§ä»£ç åº“".equals(value))
 				{
-					ImportCode.codeBean.setName("ÓïÖÖ");
+					ImportCode.codeBean.setName("è¯­ç§");
 					ImportCode.codeBean.setTable("language");
 				}
 				
@@ -203,7 +203,7 @@ public class StudentMainFrame extends JFrame {
 				{
 					try {
 						Class cla=Class.forName(url);    
-						JPanel jPanel = (JPanel)cla.newInstance();//ÀûÓÃ·´ÉäÊµÀı»¯panel
+						JPanel jPanel = (JPanel)cla.newInstance();//åˆ©ç”¨åå°„å®ä¾‹åŒ–panel
 						panelRight.removeAll();
 						
 						jPanel.setVisible(true);
@@ -238,8 +238,8 @@ public class StudentMainFrame extends JFrame {
 	
 /**
  * 	
- * @param root¸ù½Úµã
- * @param id  ¸ù½Úµãid
+ * @param rootæ ¹èŠ‚ç‚¹
+ * @param id  æ ¹èŠ‚ç‚¹id
  */
 	
 	private void tree(DefaultMutableTreeNode root, int id) {

@@ -374,10 +374,10 @@ public class AuditStudentPanel extends JPanel {
 		textAuditFailedReason.setEditable(false);
 		textAuditFailedReason.setText(sBean.getReason());
 		textAuditFailedReason.setBounds(165, 487, 536, 52);
-		//Î´Íê´ıĞø
+		//æœªå®Œå¾…ç»­
 		add(textAuditFailedReason);
 		
-		JButton btnAlter = new JButton("È·ÈÏ");
+		JButton btnAlter = new JButton("ç¡®è®¤");
 		btnAlter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				StudentBean selfBean=new StudentBean();
@@ -393,12 +393,12 @@ public class AuditStudentPanel extends JPanel {
 				int num=aAction.updateStudentOwn(selfBean);
 				if(num>0)
 				{
-					JOptionPane.showMessageDialog(null, "ĞŞ¸Ä³É¹¦");
+					JOptionPane.showMessageDialog(null, "ä¿®æ”¹æˆåŠŸ");
 					validate();
 					repaint();
 					
 				}else {
-					JOptionPane.showMessageDialog(null, "ĞŞ¸ÄÊ§°Ü");				
+					JOptionPane.showMessageDialog(null, "ä¿®æ”¹å¤±è´¥");				
 				}
 			}
 		});
@@ -420,17 +420,17 @@ public class AuditStudentPanel extends JPanel {
 		textAuditResult.setBounds(152, 393, 153, 21);
 		if(sBean.getAudit()==1)
 		{
-			textAuditResult.setText("µÈ´ıÈ·ÈÏĞÅÏ¢");
+			textAuditResult.setText("ç­‰å¾…ç¡®è®¤ä¿¡æ¯");
 		}
 		if(sBean.getAudit()==2)
 		{
-			textAuditResult.setText("µÈ´ı¸¨µ¼Ô±ÉóºË");
+			textAuditResult.setText("ç­‰å¾…è¾…å¯¼å‘˜å®¡æ ¸");
 		}if(sBean.getAudit()==3)
 		{
-			textAuditResult.setText("µÈ´ı¾ÍÒµÖ¸µ¼ÖĞĞÄÉóºË");
+			textAuditResult.setText("ç­‰å¾…å°±ä¸šæŒ‡å¯¼ä¸­å¿ƒå®¡æ ¸");
 		}if(sBean.getAudit()==4)
 		{
-			textAuditResult.setText("ÒÑÍ¨¹ı");
+			textAuditResult.setText("å·²é€šè¿‡");
 		}
 		add(textAuditResult);
 	}

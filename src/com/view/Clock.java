@@ -11,14 +11,14 @@ import java.util.TimerTask;
 import javax.swing.*;  
 
 /** 
- * Ê±ÖÓÀà 
+ * æ—¶é’Ÿç±» 
  */  
 public class Clock extends JPanel {  
-    // »­Ê±ÖÓµÄÃæ°å  
+    // ç”»æ—¶é’Ÿçš„é¢æ¿  
     private paintPanel clock = new paintPanel();  
-    // ¶¨Ê±Æ÷  
+    // å®šæ—¶å™¨  
     private java.util.Timer timer = new java.util.Timer();  
-    // ÏÔÊ¾Ê±¼äµÄlabel  
+    // æ˜¾ç¤ºæ—¶é—´çš„label  
     JLabel messageLabel = new JLabel("", SwingConstants.CENTER);  
 
     public Clock() {  
@@ -33,11 +33,11 @@ public class Clock extends JPanel {
         messageLabel.setFont(new Font("Courier", Font.BOLD, 18));  
         add(messageLabel, BorderLayout.SOUTH);  
 
-        // ¶¨Ê±Æ÷Ö´ĞĞÈÎÎñ  
+        // å®šæ—¶å™¨æ‰§è¡Œä»»åŠ¡  
         timer.schedule(new TimerTask() {  
             @Override  
             public void run() {  
-                clock.setCurrentTime();// ÉèÖÃÎªµ±Ç°Ê±¼ä  
+                clock.setCurrentTime();// è®¾ç½®ä¸ºå½“å‰æ—¶é—´  
                 messageLabel.setText(clock.getHour() + ":" + clock.getMinute() + ":" + clock.getSecond() + '\n');  
                 repaint();  
             }  
@@ -56,7 +56,7 @@ public class Clock extends JPanel {
             setCurrentTime();  
         }  
 
-        // ÉèÖÃÊ±ÖÓÎªµ±Ç°Ê±¼ä  
+        // è®¾ç½®æ—¶é’Ÿä¸ºå½“å‰æ—¶é—´  
         public  void setCurrentTime() {  
             Calendar calendar = new GregorianCalendar();  
             hour = calendar.get(Calendar.HOUR_OF_DAY);  
@@ -70,18 +70,18 @@ public class Clock extends JPanel {
             int xCenter = getWidth() / 2;  
             int yCenter = getHeight() / 2;  
 
-            // ¼ÆËã°ë¾¶  
+            // è®¡ç®—åŠå¾„  
             int radius = (int) (Math.min(this.getWidth(), this.getHeight()) * 0.8 * 0.5);  
-            // »­Ô²  
+            // ç”»åœ†  
             g.drawOval(xCenter - radius, yCenter - radius, radius * 2, radius * 2);  
 
-            // »­ÖÓÃæÉÏÏÔÊ¾µÄÊı×Ö  
+            // ç”»é’Ÿé¢ä¸Šæ˜¾ç¤ºçš„æ•°å­—  
             g.drawString("12", xCenter - 6, yCenter - radius + 12);  
             g.drawString("3", xCenter + radius - 12, yCenter + 4);  
             g.drawString("6", xCenter - 4, yCenter + radius - 8);  
             g.drawString("9", xCenter - radius + 4, yCenter + 6);  
 
-            // »­Ê±Õë¡¢·ÖÕë¡¢ÃëÕë  
+            // ç”»æ—¶é’ˆã€åˆ†é’ˆã€ç§’é’ˆ  
             g.drawLine(xCenter, yCenter, (int) (xCenter + radius * 0.8 * Math.sin(second * 2 * Math.PI / 60)), (int) (yCenter - radius * 0.8 * Math.cos(second * 2 * Math.PI / 60)));  
             g.drawLine(xCenter, yCenter, (int) (xCenter + radius * 0.6 * Math.sin(minute * 2 * Math.PI / 60)), (int) (yCenter - radius * 0.6 * Math.cos(minute * 2 * Math.PI / 60)));  
             g.drawLine(xCenter, yCenter, (int) (xCenter + radius * 0.4 * Math.sin((hour + minute / 60.0) * 2 * Math.PI / 12)), (int) (yCenter - radius * 0.4  

@@ -32,8 +32,8 @@ public class AuthorityDialog extends JDialog {
 	
 	
 	
-	UserKeyBean ukbHave=new UserKeyBean();//ÓµÓĞÈ¨ÏŞ·â×°¶ÔÏó
-	UserKeyBean ukbDtHave=new UserKeyBean();//Î´ÓµÓĞÈ¨ÏŞ·â×°¶ÔÏó
+	UserKeyBean ukbHave=new UserKeyBean();//æ‹¥æœ‰æƒé™å°è£…å¯¹è±¡
+	UserKeyBean ukbDtHave=new UserKeyBean();//æœªæ‹¥æœ‰æƒé™å°è£…å¯¹è±¡
 
 	/**
 	 * Create the dialog.
@@ -85,46 +85,46 @@ public class AuthorityDialog extends JDialog {
 			{
 				Vector v=new Vector();
 				v.add(1);
-				v.add("²é¿´ÉúÔ´ĞÅÏ¢");
-				v.add("ÊÕ»ØÈ¨ÏŞ");
+				v.add("æŸ¥çœ‹ç”Ÿæºä¿¡æ¯");
+				v.add("æ”¶å›æƒé™");
 				data.add(v);
 			}
 			if(c.equals('b'))
 			{
 				Vector v=new Vector();
 				v.add(2);
-				v.add("ĞŞ¸ÄÉúÔ´ĞÅÏ¢");
-				v.add("ÊÕ»ØÈ¨ÏŞ");
+				v.add("ä¿®æ”¹ç”Ÿæºä¿¡æ¯");
+				v.add("æ”¶å›æƒé™");
 				data.add(v);
 			}
 			if(c.equals('c'))
 			{
 				Vector v=new Vector();
 				v.add(3);
-				v.add("É¾³ıÉúÔ´ĞÅÏ¢");
-				v.add("ÊÕ»ØÈ¨ÏŞ");
+				v.add("åˆ é™¤ç”Ÿæºä¿¡æ¯");
+				v.add("æ”¶å›æƒé™");
 				data.add(v);
 			}
 			if(c.equals('d'))
 			{
 				Vector v=new Vector();
 				v.add(4);
-				v.add("µ¼ÈëÉúÔ´ĞÅÏ¢");
-				v.add("ÊÕ»ØÈ¨ÏŞ");
+				v.add("å¯¼å…¥ç”Ÿæºä¿¡æ¯");
+				v.add("æ”¶å›æƒé™");
 				data.add(v);
 			}
 			if(c.equals('e'))
 			{
 				Vector v=new Vector();
 				v.add(5);
-				v.add("µ¼³öÉúÔ´ĞÅÏ¢");
-				v.add("ÊÕ»ØÈ¨ÏŞ");
+				v.add("å¯¼å‡ºç”Ÿæºä¿¡æ¯");
+				v.add("æ”¶å›æƒé™");
 				data.add(v);
 			}
 		}
 		Vector header=new Vector();
-		header.add("ĞòºÅ");
-		header.add("È¨ÏŞÃû");
+		header.add("åºå·");
+		header.add("æƒé™å");
 		header.add("");
 		DefaultTableModel dtm=new DefaultTableModel(data,header);
 		tableHave = new JTable(dtm);
@@ -142,11 +142,11 @@ public class AuthorityDialog extends JDialog {
 					ukbHave.setAuthority(aut);
 					int num=uka.updateAuthority(ukbHave);
 					if(num>0){
-						JOptionPane.showMessageDialog(null, "³É¹¦ÊÕ»ØÈ¨ÏŞ");
+						JOptionPane.showMessageDialog(null, "æˆåŠŸæ”¶å›æƒé™");
 						initHave(aid);
 						initDtHave(aid);
 					}else {
-						JOptionPane.showMessageDialog(null, "ÊÕ»ØÊ§°Ü");
+						JOptionPane.showMessageDialog(null, "æ”¶å›å¤±è´¥");
 					}
 				}
 			}
@@ -162,45 +162,45 @@ public class AuthorityDialog extends JDialog {
 		{
 			Vector v=new Vector();
 			v.add(1);
-			v.add("²é¿´ÉúÔ´ĞÅÏ¢");
-			v.add("ÊÚÓèÈ¨ÏŞ");
+			v.add("æŸ¥çœ‹ç”Ÿæºä¿¡æ¯");
+			v.add("æˆäºˆæƒé™");
 			data.add(v);
 		}
 		if(ukbDtHave.getAuthority()[1]=='o')
 		{
 			Vector v=new Vector();
 			v.add(2);
-			v.add("ĞŞ¸ÄÉúÔ´ĞÅÏ¢");
-			v.add("ÊÚÓèÈ¨ÏŞ");
+			v.add("ä¿®æ”¹ç”Ÿæºä¿¡æ¯");
+			v.add("æˆäºˆæƒé™");
 			data.add(v);
 		}
 		if(ukbDtHave.getAuthority()[2]=='o')
 		{
 			Vector v=new Vector();
 			v.add(3);
-			v.add("É¾³ıÉúÔ´ĞÅÏ¢");
-			v.add("ÊÚÓèÈ¨ÏŞ");
+			v.add("åˆ é™¤ç”Ÿæºä¿¡æ¯");
+			v.add("æˆäºˆæƒé™");
 			data.add(v);
 		}
 		if(ukbDtHave.getAuthority()[3]=='o')
 		{
 			Vector v=new Vector();
 			v.add(4);
-			v.add("µ¼ÈëÉúÔ´ĞÅÏ¢");
-			v.add("ÊÚÓèÈ¨ÏŞ");
+			v.add("å¯¼å…¥ç”Ÿæºä¿¡æ¯");
+			v.add("æˆäºˆæƒé™");
 			data.add(v);
 		}
 		if(ukbDtHave.getAuthority()[4]=='o')
 		{
 			Vector v=new Vector();
 			v.add(5);
-			v.add("µ¼³öÉúÔ´ĞÅÏ¢");
-			v.add("ÊÚÓèÈ¨ÏŞ");
+			v.add("å¯¼å‡ºç”Ÿæºä¿¡æ¯");
+			v.add("æˆäºˆæƒé™");
 			data.add(v);
 		}
 		Vector header=new Vector();
-		header.add("ĞòºÅ");
-		header.add("È¨ÏŞÃû");
+		header.add("åºå·");
+		header.add("æƒé™å");
 		header.add("");
 		DefaultTableModel dtm=new DefaultTableModel(data,header);
 		tableDtHave = new JTable(dtm);
@@ -237,11 +237,11 @@ public class AuthorityDialog extends JDialog {
 					ukbDtHave.setAuthority(aut);
 					int num=uka.updateAuthority(ukbDtHave);
 					if(num>0){
-						JOptionPane.showMessageDialog(null, "³É¹¦ÊÚÓèÈ¨ÏŞ");
+						JOptionPane.showMessageDialog(null, "æˆåŠŸæˆäºˆæƒé™");
 						initHave(aid);
 						initDtHave(aid);
 					}else {
-						JOptionPane.showMessageDialog(null, "ÊÚÓèÊ§°Ü");
+						JOptionPane.showMessageDialog(null, "æˆäºˆå¤±è´¥");
 					}
 				}
 				

@@ -49,15 +49,15 @@ public class SelectStudent extends JPanel {
 	JScrollPane scrollPane = new JScrollPane();
 	private JTextField textSearch;
 	
-	static UserKeyBean autBean=new UserKeyBean();//µÇÂ½ĞÅÏ¢
-	int countPage=0;//×ÜÒ³Êı	
-	int countRows=0;//×ÜĞĞÊı
-	int rowsPage=20;//Ã¿Ò³ĞĞÊı
-	int currentPage=1;//µ±Ç°Ò³Êı
+	static UserKeyBean autBean=new UserKeyBean();//ç™»é™†ä¿¡æ¯
+	int countPage=0;//æ€»é¡µæ•°	
+	int countRows=0;//æ€»è¡Œæ•°
+	int rowsPage=20;//æ¯é¡µè¡Œæ•°
+	int currentPage=1;//å½“å‰é¡µæ•°
 	StudentBean sBean=new StudentBean();
 	static String studentTableName="";
-	int raw=0;//Êó±êµã»÷±í¸ñĞĞ
-	int column=0;//Êó±êµã»÷±í¸ñÁĞ
+	int raw=0;//é¼ æ ‡ç‚¹å‡»è¡¨æ ¼è¡Œ
+	int column=0;//é¼ æ ‡ç‚¹å‡»è¡¨æ ¼åˆ—
 	private JTable table;
 	JLabel lblNow = new JLabel();
 	private JTextField textDrumpPage;
@@ -65,7 +65,7 @@ public class SelectStudent extends JPanel {
 	 * Create the panel.
 	 */
 	/**
-	 * ²éÑ¯ËùÓĞÑ§Éú
+	 * æŸ¥è¯¢æ‰€æœ‰å­¦ç”Ÿ
 	 */
 	public SelectStudent() {
 		setLayout(null);
@@ -80,7 +80,7 @@ public class SelectStudent extends JPanel {
 		add(scrollPane);
 		
 		JButton btnLast = new JButton("\u5C3E\u9875");
-		btnLast.addActionListener(new ActionListener() {//Î²Ò³
+		btnLast.addActionListener(new ActionListener() {//å°¾é¡µ
 			public void actionPerformed(ActionEvent e) {
 				currentPage=countPage;
 				initTable(sBean,currentPage,studentTableName);
@@ -90,7 +90,7 @@ public class SelectStudent extends JPanel {
 		add(btnLast);
 		
 		JButton btnStart = new JButton("\u9996\u9875");
-		btnStart.addActionListener(new ActionListener() {//Ê×Ò³
+		btnStart.addActionListener(new ActionListener() {//é¦–é¡µ
 			public void actionPerformed(ActionEvent e) {
 				currentPage=1;
 				initTable(sBean,currentPage,studentTableName);
@@ -114,15 +114,15 @@ public class SelectStudent extends JPanel {
 		
 		final JComboBox cmbSearch = new JComboBox();
 		cmbSearch.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent e) {//ÏÂÀ­¿ò¼àÌı£¬ÏÂÀ­¿òÖµ¸Ä±äÔòÇå¿ÕsBean
+			public void itemStateChanged(ItemEvent e) {//ä¸‹æ‹‰æ¡†ç›‘å¬ï¼Œä¸‹æ‹‰æ¡†å€¼æ”¹å˜åˆ™æ¸…ç©ºsBean
 				 sBean=new StudentBean();
 				 initTable(sBean,1,studentTableName);
 			}
 		});
-		cmbSearch.addItem("Ñ§ºÅ");
-		cmbSearch.addItem("×¨Òµ");
-		cmbSearch.addItem("ĞÕÃû");
-		cmbSearch.addItem("ĞÔ±ğ");
+		cmbSearch.addItem("å­¦å·");
+		cmbSearch.addItem("ä¸“ä¸š");
+		cmbSearch.addItem("å§“å");
+		cmbSearch.addItem("æ€§åˆ«");
 		
 		cmbSearch.setBounds(342, 62, 82, 21);
 		add(cmbSearch);
@@ -130,43 +130,43 @@ public class SelectStudent extends JPanel {
 		
 		
 		JButton btnSelect = new JButton("\u7B5B\u9009");
-		btnSelect.addActionListener(new ActionListener() {//Ìõ¼ş²éÑ¯Ñ§Éú
+		btnSelect.addActionListener(new ActionListener() {//æ¡ä»¶æŸ¥è¯¢å­¦ç”Ÿ
 			public void actionPerformed(ActionEvent arg0) {
 				String search=textSearch.getText();
 				
-				if("Ñ§ºÅ".equals(cmbSearch.getSelectedItem()))
+				if("å­¦å·".equals(cmbSearch.getSelectedItem()))
 				{
 					sBean.setSid(search);
 				}
-				if("×¨Òµ".equals(cmbSearch.getSelectedItem()))
+				if("ä¸“ä¸š".equals(cmbSearch.getSelectedItem()))
 				{
 					sBean.setProfession(search);
 				}
-				if("ĞÕÃû".equals(cmbSearch.getSelectedItem()))
+				if("å§“å".equals(cmbSearch.getSelectedItem()))
 				{
 					sBean.setName(search);
 				}
-				if("ĞÔ±ğ".equals(cmbSearch.getSelectedItem()))
+				if("æ€§åˆ«".equals(cmbSearch.getSelectedItem()))
 				{
 					sBean.setSex(search);
 				}
 //				try {
-//					Class cla=Class.forName("com.view.StudentMainFrame.StudentMainFrame().tree");//·´ÉäÊµÀı»¯Ê÷  »ñµÃÊ÷Ò¶Ãû;
+//					Class cla=Class.forName("com.view.StudentMainFrame.StudentMainFrame().tree");//åå°„å®ä¾‹åŒ–æ ‘  è·å¾—æ ‘å¶å;
 //					JTree tree=(JTree)cla.newInstance();
 //					String get=tree.getLastSelectedPathComponent()+"";
-//				if("±¾¿ÆÉúĞÅÏ¢¹ÜÀí".equals(get))//»ñÈ¡¶ÔÓ¦Ñ§ÀúÑ§Éú±íÃû
+//				if("æœ¬ç§‘ç”Ÿä¿¡æ¯ç®¡ç†".equals(get))//è·å–å¯¹åº”å­¦å†å­¦ç”Ÿè¡¨å
 //				{
 //					studentTableName="student2";
 //				}
-//				if("Ë¶Ê¿ÉúĞÅÏ¢¹ÜÀí".equals(get))
+//				if("ç¡•å£«ç”Ÿä¿¡æ¯ç®¡ç†".equals(get))
 //				{
 //					studentTableName="student3";
 //				}
-//				if("²©Ê¿ÉúĞÅÏ¢¹ÜÀí".equals(get))
+//				if("åšå£«ç”Ÿä¿¡æ¯ç®¡ç†".equals(get))
 //				{
 //					studentTableName="student4";
 //				}
-//				if("×¨¿ÆÉúĞÅÏ¢¹ÜÀí".equals(get))
+//				if("ä¸“ç§‘ç”Ÿä¿¡æ¯ç®¡ç†".equals(get))
 //				{
 //					studentTableName="student1";
 //				}
@@ -186,7 +186,7 @@ public class SelectStudent extends JPanel {
 		
 		
 		
-		JButton btnNext = new JButton("\u4E0B\u4E00\u9875");//ÏÂÒ»Ò³
+		JButton btnNext = new JButton("\u4E0B\u4E00\u9875");//ä¸‹ä¸€é¡µ
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(currentPage!=countPage)
@@ -200,7 +200,7 @@ public class SelectStudent extends JPanel {
 		btnNext.setBounds(247, 373, 82, 23);
 		add(btnNext);
 		
-		JButton btnUp = new JButton("\u4E0A\u4E00\u9875");//ÉÏÒ»Ò³
+		JButton btnUp = new JButton("\u4E0A\u4E00\u9875");//ä¸Šä¸€é¡µ
 		btnUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(currentPage!=1)
@@ -216,7 +216,7 @@ public class SelectStudent extends JPanel {
 		
 		JButton buttonOut = new JButton("\u6279\u91CF\u5BFC\u51FA");
 		buttonOut.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {//ÅúÁ¿µ¼³ö
+			public void actionPerformed(ActionEvent e) {//æ‰¹é‡å¯¼å‡º
 				JFileChooser jfc=new JFileChooser();
 				int num=jfc.showSaveDialog(null);
 				
@@ -224,49 +224,49 @@ public class SelectStudent extends JPanel {
 				{
 					File file=jfc.getSelectedFile();
 					List<String> header=new ArrayList<String>();
-					header.add("¿¼ÉúºÅ");
-					header.add("ĞÕÃû");
-					header.add("ĞÔ±ğ");
-					header.add("Ñ§ºÅ");
-					header.add("Ãñ×å");
-					header.add("´úÂë");
-					header.add("ÕşÖÎÃæÃ²");
-					header.add("´úÂë");
-					header.add("Ñ§Àú");
-					header.add("´úÂë");
-					header.add("×¨Òµ");
-					header.add("´úÂë");
-					header.add("ÅàÑø·½Ê½");
-					header.add("´úÂë");
-					header.add("µØÖ·");
-					header.add("´úÂë");
-					header.add("ÉúÈÕ");
-					header.add("Éí·İÖ¤ºÅ");
-					header.add("ÈëÑ§ÈÕÆÚ");
-					header.add("Ñ§ÖÆ");
-					header.add("¶¨Ïò»òÎ¯Åà");
-					header.add("Ö÷ĞŞÍâÓï");
-					header.add("´úÂë");
-					header.add("Ñ§¼®±ä¶¯");
-					header.add("´úÂë");
-					header.add("±ÏÒµÊ±¼ä");
-					header.add("ÁªÏµ·½Ê½");
-					header.add("ÓÊÏä");
-					header.add("»§¿ÚÊÇ·ñÔÚĞ£");
-					header.add("Ó¢ÓïµÈ¼¶");
-					header.add("Ñ§Ğ£½±³Í¼ÇÂ¼");
-					header.add("ÔºÏµ");
-					header.add("Äê¼¶");
-					header.add("ÃÜÂë");
-					header.add("ÉóºË");
-					header.add("²»ÖªµÀĞ´É¶Ãû");
+					header.add("è€ƒç”Ÿå·");
+					header.add("å§“å");
+					header.add("æ€§åˆ«");
+					header.add("å­¦å·");
+					header.add("æ°‘æ—");
+					header.add("ä»£ç ");
+					header.add("æ”¿æ²»é¢è²Œ");
+					header.add("ä»£ç ");
+					header.add("å­¦å†");
+					header.add("ä»£ç ");
+					header.add("ä¸“ä¸š");
+					header.add("ä»£ç ");
+					header.add("åŸ¹å…»æ–¹å¼");
+					header.add("ä»£ç ");
+					header.add("åœ°å€");
+					header.add("ä»£ç ");
+					header.add("ç”Ÿæ—¥");
+					header.add("èº«ä»½è¯å·");
+					header.add("å…¥å­¦æ—¥æœŸ");
+					header.add("å­¦åˆ¶");
+					header.add("å®šå‘æˆ–å§”åŸ¹");
+					header.add("ä¸»ä¿®å¤–è¯­");
+					header.add("ä»£ç ");
+					header.add("å­¦ç±å˜åŠ¨");
+					header.add("ä»£ç ");
+					header.add("æ¯•ä¸šæ—¶é—´");
+					header.add("è”ç³»æ–¹å¼");
+					header.add("é‚®ç®±");
+					header.add("æˆ·å£æ˜¯å¦åœ¨æ ¡");
+					header.add("è‹±è¯­ç­‰çº§");
+					header.add("å­¦æ ¡å¥–æƒ©è®°å½•");
+					header.add("é™¢ç³»");
+					header.add("å¹´çº§");
+					header.add("å¯†ç ");
+					header.add("å®¡æ ¸");
+					header.add("ä¸çŸ¥é“å†™å•¥å");
 					header.add("ID");
-					header.add("ÉóºËÎ´Í¨¹ıÔ­Òò");
+					header.add("å®¡æ ¸æœªé€šè¿‡åŸå› ");
 					
 					String department="";
 					if(StudentMainFrame.uBean.getRid()==2)
 					{
-						department=StudentMainFrame.uBean.getUsername();//Èç¹ûÎª¹ÜÀíÔ± ÔòÖ»ÄÜµ¼³ö±¾ÔºÑ§Éú
+						department=StudentMainFrame.uBean.getUsername();//å¦‚æœä¸ºç®¡ç†å‘˜ åˆ™åªèƒ½å¯¼å‡ºæœ¬é™¢å­¦ç”Ÿ
 					
 					}
 					List<String[]> colleges=sAction.getStudentAll(studentTableName,department);//
@@ -276,9 +276,9 @@ public class SelectStudent extends JPanel {
 						result = ExcelExportCollege.exportExcel(header, colleges, file);
 						if(result)
 						{
-							JOptionPane.showMessageDialog(null, "µ¼³ö³É¹¦");
+							JOptionPane.showMessageDialog(null, "å¯¼å‡ºæˆåŠŸ");
 						}else {
-							JOptionPane.showMessageDialog(null, "µ¼³öÊ§°Ü");
+							JOptionPane.showMessageDialog(null, "å¯¼å‡ºå¤±è´¥");
 						}
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
@@ -289,12 +289,12 @@ public class SelectStudent extends JPanel {
 			}
 		});
 		buttonOut.setBounds(535, 58, 93, 23);
-		if(autBean.getAuthority()[4]=='e')//µ¼³öÈ¨ÏŞ¿ØÖÆ
+		if(autBean.getAuthority()[4]=='e')//å¯¼å‡ºæƒé™æ§åˆ¶
 		{
 			add(buttonOut);
 		}
 		JButton buttonIn = new JButton("\u6279\u91CF\u5BFC\u5165");
-		buttonIn.addActionListener(new ActionListener() {//ÅúÁ¿µ¼ÈëÑ§ÉúĞÅÏ¢
+		buttonIn.addActionListener(new ActionListener() {//æ‰¹é‡å¯¼å…¥å­¦ç”Ÿä¿¡æ¯
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser jfc=new JFileChooser();
 				int num=jfc.showOpenDialog(null);
@@ -308,9 +308,9 @@ public class SelectStudent extends JPanel {
 								flag=sAction.addBatchStudent(result,studentTableName);
 						if(flag)
 						{
-							JOptionPane.showMessageDialog(null, "µ¼Èë³É¹¦");
+							JOptionPane.showMessageDialog(null, "å¯¼å…¥æˆåŠŸ");
 						}else {
-							JOptionPane.showMessageDialog(null, "µ¼ÈëÊ§°Ü");
+							JOptionPane.showMessageDialog(null, "å¯¼å…¥å¤±è´¥");
 						}
 					}catch(Exception e1) {
 						// TODO Auto-generated catch block
@@ -321,7 +321,7 @@ public class SelectStudent extends JPanel {
 			}
 		});
 		buttonIn.setBounds(535, 84, 93, 23);
-		if(autBean.getAuthority()[3]=='d')//µ¼ÈëÈ¨ÏŞ¿ØÖÆ
+		if(autBean.getAuthority()[3]=='d')//å¯¼å…¥æƒé™æ§åˆ¶
 		{
 			add(buttonIn);
 		}
@@ -340,11 +340,11 @@ public class SelectStudent extends JPanel {
 				int num=sAction.delBatchStudent(result,studentTableName);
 				if(num>0)
 				{
-					JOptionPane.showMessageDialog(null, num+"ÌõĞÅÏ¢ÒÑÉ¾³ı");
+					JOptionPane.showMessageDialog(null, num+"æ¡ä¿¡æ¯å·²åˆ é™¤");
 					countRows=countRows-num;
 					initTable(sBean,currentPage,studentTableName);
 				}else {
-					JOptionPane.showMessageDialog(null, "É¾³ıÊ§°Ü");
+					JOptionPane.showMessageDialog(null, "åˆ é™¤å¤±è´¥");
 				}
 				
 			}
@@ -383,16 +383,16 @@ public class SelectStudent extends JPanel {
 		this.repaint();
 		
 	}
-	//³õÊ¼»¯ Ê÷
+	//åˆå§‹åŒ– æ ‘
 	private void initTable(final StudentBean stuBean,int currentPage2,String stuTableName)
 	{
 		String teacher="";
-		if(autBean.getRid()==2)//Èç¹ûÎª¸¨µ¼Ô±  Ôò½ö»ñµÃ±¾ÔºÏµÑ§Éú;
+		if(autBean.getRid()==2)//å¦‚æœä¸ºè¾…å¯¼å‘˜  åˆ™ä»…è·å¾—æœ¬é™¢ç³»å­¦ç”Ÿ;
 		{
 			teacher="and department='"+autBean.getUsername()+"' ";
 			
 		}
-		countRows=sAction.getCountRows(stuBean,stuTableName,teacher);//»ñÈ¡×Ü×ÜÌõÊı
+		countRows=sAction.getCountRows(stuBean,stuTableName,teacher);//è·å–æ€»æ€»æ¡æ•°
 
 		
 		countPage=countRows%rowsPage>0?countRows/rowsPage+1:countRows/rowsPage;
@@ -403,38 +403,38 @@ public class SelectStudent extends JPanel {
 		list=sAction.selAllStudent(stuBean,rowsPage,currentPage2,stuTableName,teacher);
 		for(Vector v:list)
 		{
-			if(autBean.getAuthority()[1]=='b')//ĞŞ¸ÄÑ§ÉúĞÅÏ¢¿ØÖÆ
+			if(autBean.getAuthority()[1]=='b')//ä¿®æ”¹å­¦ç”Ÿä¿¡æ¯æ§åˆ¶
 			{
-			v.add("ĞŞ¸Ä");
+			v.add("ä¿®æ”¹");
 			}
 			
-			v.add("É¾³ı");
+			v.add("åˆ é™¤");
 			
 			data.add(v);
 		}
 		
 		Vector header=new Vector();
-		header.add("È«Ñ¡/·´Ñ¡");
-		header.add("Ñ§ºÅ");
-		header.add("ĞÕÃû");
+		header.add("å…¨é€‰/åé€‰");
+		header.add("å­¦å·");
+		header.add("å§“å");
 		
-		header.add("ĞÔ±ğ");
-		header.add("×¨Òµ");
-		if(autBean.getAuthority()[2]=='c')//É¾³ıÑ§ÉúĞÅÏ¢¿ØÖÆ
+		header.add("æ€§åˆ«");
+		header.add("ä¸“ä¸š");
+		if(autBean.getAuthority()[2]=='c')//åˆ é™¤å­¦ç”Ÿä¿¡æ¯æ§åˆ¶
 		{
 		header.add("");
 		}
 		
 			
 		
-		if(autBean.getAuthority()[1]=='b')//ĞŞ¸ÄÑ§ÉúĞÅÏ¢È¨ÏŞ¿ØÖÆ
+		if(autBean.getAuthority()[1]=='b')//ä¿®æ”¹å­¦ç”Ÿä¿¡æ¯æƒé™æ§åˆ¶
 		{
 		header.add("");
 		}
 		
 		CheckTableModle tableModel=new CheckTableModle(data, header);
 	
-		if(autBean.getAuthority()[0]=='a')//²é¿´ÉúÔ´ĞÅÏ¢È¨ÏŞ¿ØÖÆ
+		if(autBean.getAuthority()[0]=='a')//æŸ¥çœ‹ç”Ÿæºä¿¡æ¯æƒé™æ§åˆ¶
 		{
 			table = new JTable(tableModel){  
 	            @Override  
@@ -461,10 +461,10 @@ public class SelectStudent extends JPanel {
 						columny=5;
 					}
 					
-					String value=(String)table.getValueAt(raw, 1);//»ñÈ¡Ñ¡ÔñĞĞµÄÑ§ºÅ
+					String value=(String)table.getValueAt(raw, 1);//è·å–é€‰æ‹©è¡Œçš„å­¦å·
 					if(column==columnx)
 					{
-						JOptionPane.showMessageDialog(null, "ĞŞ¸ÄÑ§ÉúĞÅÏ¢");
+						JOptionPane.showMessageDialog(null, "ä¿®æ”¹å­¦ç”Ÿä¿¡æ¯");
 						UpdateStudentDialog updateStudent=new UpdateStudentDialog(stuTableName,value);
 						
 						updateStudent.setVisible(true);
@@ -472,18 +472,18 @@ public class SelectStudent extends JPanel {
 					}
 					if(column==columny)
 					{
-						int result=JOptionPane.showConfirmDialog(null,"ÊÇ·ñÉ¾³ıĞÅÏ¢?","É¾³ıÑ§ÉúĞÅÏ¢", JOptionPane.YES_NO_CANCEL_OPTION);
+						int result=JOptionPane.showConfirmDialog(null,"æ˜¯å¦åˆ é™¤ä¿¡æ¯?","åˆ é™¤å­¦ç”Ÿä¿¡æ¯", JOptionPane.YES_NO_CANCEL_OPTION);
 						if(result==0)
 						{
 							int num=sAction.deleteStudent(value,stuTableName);
 							if(num>0)
 							{
-								JOptionPane.showMessageDialog(null, "É¾³ı³É¹¦");	
+								JOptionPane.showMessageDialog(null, "åˆ é™¤æˆåŠŸ");	
 								countRows--;
 							initTable(stuBean,currentPage,stuTableName);
 							
 							}else{
-								JOptionPane.showMessageDialog(null, "É¾³ıÊ§°Ü");
+								JOptionPane.showMessageDialog(null, "åˆ é™¤å¤±è´¥");
 							}
 						}
 					}

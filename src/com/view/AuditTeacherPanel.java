@@ -32,10 +32,10 @@ public class AuditTeacherPanel extends JPanel {
 	JComboBox comboEducation = new JComboBox();
 	AuditAction aAction=new AuditAction();
 	AuditBean aBean=new AuditBean();
-	int countPage=0;//×ÜÒ³Êı	
-	int countRows=0;//×ÜĞĞÊı
-	int rowsPage=20;//Ã¿Ò³ĞĞÊı
-	int currentPage=1;//µ±Ç°Ò³Êı
+	int countPage=0;//æ€»é¡µæ•°	
+	int countRows=0;//æ€»è¡Œæ•°
+	int rowsPage=20;//æ¯é¡µè¡Œæ•°
+	int currentPage=1;//å½“å‰é¡µæ•°
 	/**
 	 * Create the panel.
 	 */
@@ -49,10 +49,10 @@ public class AuditTeacherPanel extends JPanel {
 		
 		
 		comboEducation.setBounds(333, 42, 100, 21);
-		comboEducation.addItem("±¾¿Æ");
-		comboEducation.addItem("×¨¿Æ");
-		comboEducation.addItem("Ë¶Ê¿");
-		comboEducation.addItem("²©Ê¿");
+		comboEducation.addItem("æœ¬ç§‘");
+		comboEducation.addItem("ä¸“ç§‘");
+		comboEducation.addItem("ç¡•å£«");
+		comboEducation.addItem("åšå£«");
 		
 		add(comboEducation);
 		Vector<String> allDepart=aAction.getAllDepart();
@@ -72,12 +72,12 @@ public class AuditTeacherPanel extends JPanel {
 				int rp=0;
 				if(currentPage==countPage)
 				{
-					rp=countRows-rowsPage*(countPage-1);//·ÀÖ¹×îºóÒ»Ò³ÉÙÓÚÃ¿Ò³ĞĞÊı¶øÎŞ·¨È¡ÖµµÄÇé¿ö
+					rp=countRows-rowsPage*(countPage-1);//é˜²æ­¢æœ€åä¸€é¡µå°‘äºæ¯é¡µè¡Œæ•°è€Œæ— æ³•å–å€¼çš„æƒ…å†µ
 				}
 				else {
 					rp=rowsPage;
 				}
-				for(int i=0;i<rp;i++)//»ñÈ¡Ñ¡Ôñ±éÀú
+				for(int i=0;i<rp;i++)//è·å–é€‰æ‹©éå†
 				{
 					Vector v=new Vector();
 					v.add(table.getValueAt(i, 0));
@@ -88,20 +88,20 @@ public class AuditTeacherPanel extends JPanel {
 				}
 				
 				
-//				Vector<String[]> tempBatch=aAction.tempBatchStudent(vector);//Í¨¹ıÑ§ºÅ»ñÈ¡Ñ§ÉúĞÅÏ¢´æÈëÊı×é
+//				Vector<String[]> tempBatch=aAction.tempBatchStudent(vector);//é€šè¿‡å­¦å·è·å–å­¦ç”Ÿä¿¡æ¯å­˜å…¥æ•°ç»„
 				
 //				for(String str[]:tempBatch)
 //				{
 //					str[34]=String.valueOf(3);
 //					str[37]="";
 //				}
-				int num=aAction.updateBatchTeacher(vector,3);//ÅúÁ¿Í¨¹ı
+				int num=aAction.updateBatchTeacher(vector,3);//æ‰¹é‡é€šè¿‡
 				if(num>0)
 				{
-					JOptionPane.showMessageDialog(null, num+"¸öÑ§ÉúÉóºËÍê±Ï");
+					JOptionPane.showMessageDialog(null, num+"ä¸ªå­¦ç”Ÿå®¡æ ¸å®Œæ¯•");
 					initTable(aBean,currentPage);
 				}else {
-					JOptionPane.showMessageDialog(null, "ÉóºËÊ§°Ü");
+					JOptionPane.showMessageDialog(null, "å®¡æ ¸å¤±è´¥");
 				}
 				
 			}
@@ -204,8 +204,8 @@ public class AuditTeacherPanel extends JPanel {
 		labEducation.setBounds(266, 42, 46, 21);
 		add(labEducation);
 		
-		JLabel lblDepartment = new JLabel(StudentMainFrame.uBean.getUsername()+" ¸¨µ¼Ô±");
-		lblDepartment.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 23));
+		JLabel lblDepartment = new JLabel(StudentMainFrame.uBean.getUsername()+" è¾…å¯¼å‘˜");
+		lblDepartment.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 23));
 		lblDepartment.setBounds(47, 10, 174, 53);
 		add(lblDepartment);
 		
@@ -216,19 +216,19 @@ public class AuditTeacherPanel extends JPanel {
 	}
 	private void initTable(AuditBean bean,int currentPage2)
 	{
-		countRows=aAction.getCountRows(StudentMainFrame.uBean.getRid(),StudentMainFrame.uBean.getUsername(),comboEducation.getSelectedItem()+"");//»ñÈ¡×Ü×ÜÌõÊı
+		countRows=aAction.getCountRows(StudentMainFrame.uBean.getRid(),StudentMainFrame.uBean.getUsername(),comboEducation.getSelectedItem()+"");//è·å–æ€»æ€»æ¡æ•°
 		
 		
 		countPage=countRows%rowsPage>0?countRows/rowsPage+1:countRows/rowsPage;
 		Vector<Vector> data=new Vector<Vector>();
 		data=aAction.getStudentAuditTeacher(bean,currentPage2,rowsPage);
 		Vector<String> header=new Vector<String>();
-		header.add("È«Ñ¡/·´Ñ¡");
-		header.add("Ñ§ºÅ");
-		header.add("ĞÕÃû");
-		header.add("Ñ§Ôº");
-		header.add("×¨Òµ");
-		header.add("ÉóºË×´Ì¬");
+		header.add("å…¨é€‰/åé€‰");
+		header.add("å­¦å·");
+		header.add("å§“å");
+		header.add("å­¦é™¢");
+		header.add("ä¸“ä¸š");
+		header.add("å®¡æ ¸çŠ¶æ€");
 		header.add("");
 		textCountPage.setText(String.valueOf(currentPage2)+"/"+String.valueOf(countPage));
 		CheckTableModle tableModel=new CheckTableModle(data,header);
@@ -239,7 +239,7 @@ public class AuditTeacherPanel extends JPanel {
 				int row=table.getSelectedRow();
 				int column=table.getSelectedColumn();
 				
-				if(column==6&&table.getValueAt(row, 5).equals("µÈ´ıÉóºË"))
+				if(column==6&&table.getValueAt(row, 5).equals("ç­‰å¾…å®¡æ ¸"))
 				{
 					AuditTeacherCenterDialog atcd=new AuditTeacherCenterDialog(StudentMainFrame.uBean.getRid(),table.getValueAt(row, 3)+"",table.getValueAt(row, 1)+"");
 					initTable(bean,currentPage);

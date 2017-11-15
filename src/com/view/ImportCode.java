@@ -34,10 +34,10 @@ public class ImportCode extends JPanel {
 	private JTextField textName;
 
 	
-	int countPage=0;//×ÜÒ³Êı	
-	int countRows=0;//×ÜĞĞÊı
-	int rowsPage=20;//Ã¿Ò³ĞĞÊı
-	int currentPage=1;//µ±Ç°Ò³Êı
+	int countPage=0;//æ€»é¡µæ•°	
+	int countRows=0;//æ€»è¡Œæ•°
+	int rowsPage=20;//æ¯é¡µè¡Œæ•°
+	int currentPage=1;//å½“å‰é¡µæ•°
 	
 	CodeAction cAction=new CodeAction();
 	JScrollPane scrollPane = new JScrollPane();
@@ -76,7 +76,7 @@ public class ImportCode extends JPanel {
 		JButton btnOne = new JButton("\u5355\u6761\u6DFB\u52A0");
 		btnOne.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int n=JOptionPane.showConfirmDialog(null,"ÊÇ·ñÈ·ÈÏÌí¼Ó","µ¥ÌõÌí¼Ó",JOptionPane.YES_NO_CANCEL_OPTION);
+				int n=JOptionPane.showConfirmDialog(null,"æ˜¯å¦ç¡®è®¤æ·»åŠ ","å•æ¡æ·»åŠ ",JOptionPane.YES_NO_CANCEL_OPTION);
 				if(n==0)
 				{
 				ImportCodeBean b=new ImportCodeBean();
@@ -88,9 +88,9 @@ public class ImportCode extends JPanel {
 				int num=cAction.addCodeOne(b);
 				if(num>0)
 				{
-					JOptionPane.showMessageDialog(null,"Ìí¼Ó³É¹¦");
+					JOptionPane.showMessageDialog(null,"æ·»åŠ æˆåŠŸ");
 				}else {
-					JOptionPane.showMessageDialog(null, "Ìí¼ÓÊ§°Ü");
+					JOptionPane.showMessageDialog(null, "æ·»åŠ å¤±è´¥");
 				}
 				}
 			}
@@ -161,10 +161,10 @@ public class ImportCode extends JPanel {
 						boolean flag=cAction.addBatchCode(result,codeBean);
 						if(flag)
 						{
-							JOptionPane.showMessageDialog(null, "µ¼Èë³É¹¦");
+							JOptionPane.showMessageDialog(null, "å¯¼å…¥æˆåŠŸ");
 							
 						}else {
-							JOptionPane.showMessageDialog(null, "µ¼ÈëÊ§°Ü");
+							JOptionPane.showMessageDialog(null, "å¯¼å…¥å¤±è´¥");
 						}
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
@@ -192,9 +192,9 @@ public class ImportCode extends JPanel {
 					result = ExcelExportCollege.exportExcel(header, colleges, file);
 					if(result)
 					{
-						JOptionPane.showMessageDialog(null, "µ¼³ö³É¹¦");
+						JOptionPane.showMessageDialog(null, "å¯¼å‡ºæˆåŠŸ");
 					}else {
-						JOptionPane.showMessageDialog(null, "µ¼³öÊ§°Ü");
+						JOptionPane.showMessageDialog(null, "å¯¼å‡ºå¤±è´¥");
 					}
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
@@ -220,11 +220,11 @@ public class ImportCode extends JPanel {
 				int num=cAction.delBatchCode(result,codeBean);
 				if(num>0)
 				{
-					JOptionPane.showMessageDialog(null, num+"Ìõ¼ÇÂ¼ÒÑÉ¾³ı");
+					JOptionPane.showMessageDialog(null, num+"æ¡è®°å½•å·²åˆ é™¤");
 					countRows=countRows-num;
 					initTable(codeBean, currentPage);
 				}else {
-					JOptionPane.showMessageDialog(null, "É¾³ıÊ§°Ü");
+					JOptionPane.showMessageDialog(null, "åˆ é™¤å¤±è´¥");
 				}
 			}
 		});
@@ -236,21 +236,21 @@ public class ImportCode extends JPanel {
 	}
 	private void initTable(ImportCodeBean bean,int currpage)
 	{
-		countRows=cAction.getCountRows(bean);//×ÜĞĞÊı
-		countPage=countRows%rowsPage>0?countRows/rowsPage+1:countRows/rowsPage;//×ÜÒ³Êı
+		countRows=cAction.getCountRows(bean);//æ€»è¡Œæ•°
+		countPage=countRows%rowsPage>0?countRows/rowsPage+1:countRows/rowsPage;//æ€»é¡µæ•°
 		List<Vector> list=cAction.getCodeTable(bean,currpage,rowsPage);
 		Vector<Vector> data=new Vector<Vector>();
 		for(Vector v:list)
 		{
-			v.add("ĞŞ¸Ä");
-			v.add("É¾³ı");
+			v.add("ä¿®æ”¹");
+			v.add("åˆ é™¤");
 			data.add(v);
 		}
 		
 		Vector<String> header=new Vector<String>();
-		header.add("È«Ñ¡/·´Ñ¡");
-		header.add("ĞòºÅ");
-		header.add("´úÂë");
+		header.add("å…¨é€‰/åé€‰");
+		header.add("åºå·");
+		header.add("ä»£ç ");
 		header.add(bean.getName());
 		header.add("");
 		header.add("");
@@ -274,7 +274,7 @@ public class ImportCode extends JPanel {
 				ImportCodeBean iBean=new ImportCodeBean();
 				if(column==4)
 				{
-					int num=JOptionPane.showConfirmDialog(null,"ÊÇ·ñÈ·ÈÏĞŞ¸Ä","ĞŞ¸ÄĞÅÏ¢",JOptionPane.OK_CANCEL_OPTION);
+					int num=JOptionPane.showConfirmDialog(null,"æ˜¯å¦ç¡®è®¤ä¿®æ”¹","ä¿®æ”¹ä¿¡æ¯",JOptionPane.OK_CANCEL_OPTION);
 					if(num==0)
 					{
 						iBean.setId((int)CodeTable.getValueAt(row,1));
@@ -284,15 +284,15 @@ public class ImportCode extends JPanel {
 						int result=cAction.updateCodeOne(iBean);
 						if(result>0)
 						{
-							JOptionPane.showMessageDialog(null, "ĞŞ¸Ä³É¹¦");
+							JOptionPane.showMessageDialog(null, "ä¿®æ”¹æˆåŠŸ");
 						}else {
-							JOptionPane.showMessageDialog(null, "ĞŞ¸ÄÊ§°Ü");
+							JOptionPane.showMessageDialog(null, "ä¿®æ”¹å¤±è´¥");
 						}
 					}
 				}
 				if(column==5)
 				{
-					int num=JOptionPane.showConfirmDialog(null, "ÊÇ·ñÈ·ÈÏÉ¾³ı","É¾³ıĞÅÏ¢",JOptionPane.OK_CANCEL_OPTION);
+					int num=JOptionPane.showConfirmDialog(null, "æ˜¯å¦ç¡®è®¤åˆ é™¤","åˆ é™¤ä¿¡æ¯",JOptionPane.OK_CANCEL_OPTION);
 					if(num==0)
 					{
 						iBean.setId((int)CodeTable.getValueAt(row, 1));
@@ -300,12 +300,12 @@ public class ImportCode extends JPanel {
 						int result=cAction.delCodeOne(iBean);
 						if(result>0)
 						{
-							JOptionPane.showMessageDialog(null, "É¾³ı³É¹¦");
+							JOptionPane.showMessageDialog(null, "åˆ é™¤æˆåŠŸ");
 							countRows--;
 							initTable(codeBean,currentPage);
 							
 						}else {
-							JOptionPane.showMessageDialog(null, "É¾³ıÊ§°Ü");
+							JOptionPane.showMessageDialog(null, "åˆ é™¤å¤±è´¥");
 						}
 					}
 				}

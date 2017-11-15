@@ -136,16 +136,16 @@ public class DepartmentMaintain extends JPanel {
 		buttonImport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listD=dAction.selAllDepartment();//»ñµÃËùÓĞÔºÏµ
-				vecNormalP=dAction.selAllNormalProfession(listD);//Í¨¹ıÔºÏµ»ñµÃ¶ÔÓ¦µÄ±¾×¨¿Æ×¨Òµ
+				listD=dAction.selAllDepartment();//è·å¾—æ‰€æœ‰é™¢ç³»
+				vecNormalP=dAction.selAllNormalProfession(listD);//é€šè¿‡é™¢ç³»è·å¾—å¯¹åº”çš„æœ¬ä¸“ç§‘ä¸“ä¸š
 				vecGraduationP=dAction.selAllGraduationProfession(listD);
 				
 				int n=dAction.importProfession(vecNormalP,vecGraduationP);
 				if(n>0)
 				{
-					JOptionPane.showMessageDialog(null, "µ¼Èë³É¹¦");
+					JOptionPane.showMessageDialog(null, "å¯¼å…¥æˆåŠŸ");
 				}else {
-					JOptionPane.showMessageDialog(null, "µ¼ÈëÊ§°Ü");
+					JOptionPane.showMessageDialog(null, "å¯¼å…¥å¤±è´¥");
 				}
 				
 				
@@ -166,17 +166,17 @@ public class DepartmentMaintain extends JPanel {
 	}
 	private void initTable()
 	{
-		Vector count=dAction.countRows();//»ñµÃËùÓĞÑ§Ôº
+		Vector count=dAction.countRows();//è·å¾—æ‰€æœ‰å­¦é™¢
 		countRows=count.size();
 		countPage=countRows%rowsPage>0?countRows/rowsPage+1:countRows/rowsPage;
 		Vector<Vector> result=dAction.getDepartmentTable(count,rowsPage,currentPage);
 		Vector header=new Vector();
-		header.add("ĞòºÅ");
-		header.add("Ñ§Ôº");
-		header.add("±¾×¨¿Æ×¨Òµ");
-		header.add("ÏêÏ¸");
-		header.add("ÑĞ¾¿Éú×¨Òµ");
-		header.add("ÏêÏ¸");
+		header.add("åºå·");
+		header.add("å­¦é™¢");
+		header.add("æœ¬ä¸“ç§‘ä¸“ä¸š");
+		header.add("è¯¦ç»†");
+		header.add("ç ”ç©¶ç”Ÿä¸“ä¸š");
+		header.add("è¯¦ç»†");
 		DefaultTableModel tableModel=new DefaultTableModel(result,header);
 		
 		
@@ -192,18 +192,18 @@ public class DepartmentMaintain extends JPanel {
 				int column=table.getSelectedColumn();
 				int row=table.getSelectedRow();
 				String value=table.getValueAt(row,1)+"";
-				String N[]= {"×¨¿Æ","±¾¿Æ"};
-				String G[]= {"Ë¶Ê¿","²©Ê¿"};
+				String N[]= {"ä¸“ç§‘","æœ¬ç§‘"};
+				String G[]= {"ç¡•å£«","åšå£«"};
 				if(column==3)
 				{
-					JOptionPane.showMessageDialog(null, "ÏêÏ¸");
+					JOptionPane.showMessageDialog(null, "è¯¦ç»†");
 					GetDepartOne gdo=new GetDepartOne(value,N);
 					initTable();
 					
 				}
 				if(column==5)
 				{
-					JOptionPane.showMessageDialog(null, "ÏêÏ¸");
+					JOptionPane.showMessageDialog(null, "è¯¦ç»†");
 					GetDepartOne gdo=new GetDepartOne(value,G);
 				}
 			}
@@ -222,13 +222,13 @@ class TableViewRenderer extends JTextArea implements TableCellRenderer
 { 
        public TableViewRenderer() 
        { 
-            //½«±í¸ñÉèÎª×Ô¶¯»»ĞĞ
-       setLineWrap(true); //ÀûÓÃJTextAreaµÄ×Ô¶¯»»ĞĞ·½·¨
+            //å°†è¡¨æ ¼è®¾ä¸ºè‡ªåŠ¨æ¢è¡Œ
+       setLineWrap(true); //åˆ©ç”¨JTextAreaçš„è‡ªåŠ¨æ¢è¡Œæ–¹æ³•
        }
-       public Component getTableCellRendererComponent(JTable jtable, Object obj, //objÖ¸µÄÊÇµ¥Ôª¸ñÄÚÈİ
+       public Component getTableCellRendererComponent(JTable jtable, Object obj, //objæŒ‡çš„æ˜¯å•å…ƒæ ¼å†…å®¹
             boolean isSelected, boolean hasFocus, int row, int column) 
        { 
-       setText(obj == null ? "" : obj.toString()); //ÀûÓÃJTextAreaµÄsetTextÉèÖÃÎÄ±¾·½·¨
+       setText(obj == null ? "" : obj.toString()); //åˆ©ç”¨JTextAreaçš„setTextè®¾ç½®æ–‡æœ¬æ–¹æ³•
        return this; 
        } 
     } 

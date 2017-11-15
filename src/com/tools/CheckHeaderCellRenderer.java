@@ -26,7 +26,7 @@ public class CheckHeaderCellRenderer implements TableCellRenderer {
         tableHeader.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() > 0) {
-                    //»ñµÃÑ¡ÖÐÁÐ
+                    //èŽ·å¾—é€‰ä¸­åˆ—
                     int selectColumn = tableHeader.columnAtPoint(e.getPoint());
                     if (selectColumn == 0) {
                         boolean value = !selectBox.isSelected();
@@ -45,8 +45,8 @@ public class CheckHeaderCellRenderer implements TableCellRenderer {
         // TODO Auto-generated method stub
         String valueStr = (String) value;
         JLabel label = new JLabel(valueStr);
-        label.setHorizontalAlignment(SwingConstants.CENTER); // ±íÍ·±êÇ©¾çÖÐ
-        selectBox.setHorizontalAlignment(SwingConstants.CENTER);// ±íÍ·±êÇ©¾çÖÐ
+        label.setHorizontalAlignment(SwingConstants.CENTER); // è¡¨å¤´æ ‡ç­¾å‰§ä¸­
+        selectBox.setHorizontalAlignment(SwingConstants.CENTER);// è¡¨å¤´æ ‡ç­¾å‰§ä¸­
         selectBox.setBorderPainted(true);
         JComponent component = (column == 0) ? selectBox : label;
 

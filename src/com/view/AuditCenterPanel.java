@@ -25,7 +25,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 
-public class AuditCenterPanel extends JPanel {//Î´Íê´ıĞø
+public class AuditCenterPanel extends JPanel {//æœªå®Œå¾…ç»­
 	private JTextField textCountPage;
 	private JTextField textDrumpPage;
 	private JTable table;
@@ -34,10 +34,10 @@ public class AuditCenterPanel extends JPanel {//Î´Íê´ıĞø
 	JComboBox comboEducation = new JComboBox();
 	AuditAction aAction=new AuditAction();
 	AuditBean aBean=new AuditBean();
-	int countPage=0;//×ÜÒ³Êı	
-	int countRows=0;//×ÜĞĞÊı
-	int rowsPage=20;//Ã¿Ò³ĞĞÊı
-	int currentPage=1;//µ±Ç°Ò³Êı
+	int countPage=0;//æ€»é¡µæ•°	
+	int countRows=0;//æ€»è¡Œæ•°
+	int rowsPage=20;//æ¯é¡µè¡Œæ•°
+	int currentPage=1;//å½“å‰é¡µæ•°
 	/**
 	 * Create the panel.
 	 */
@@ -51,10 +51,10 @@ public class AuditCenterPanel extends JPanel {//Î´Íê´ıĞø
 		
 		
 		comboEducation.setBounds(333, 42, 100, 21);
-		comboEducation.addItem("±¾¿Æ");
-		comboEducation.addItem("×¨¿Æ");
-		comboEducation.addItem("Ë¶Ê¿");
-		comboEducation.addItem("²©Ê¿");
+		comboEducation.addItem("æœ¬ç§‘");
+		comboEducation.addItem("ä¸“ç§‘");
+		comboEducation.addItem("ç¡•å£«");
+		comboEducation.addItem("åšå£«");
 		
 		add(comboEducation);
 		Vector<String> allDepart=aAction.getAllDepart();
@@ -91,7 +91,7 @@ public class AuditCenterPanel extends JPanel {//Î´Íê´ıĞø
 				int rp=0;
 				if(currentPage==countPage)
 				{
-					rp=countRows-rowsPage*(countPage-1);//·ÀÖ¹×îºóÒ»Ò³ÉÙÓÚÃ¿Ò³ĞĞÊı¶øÎŞ·¨È¡ÖµµÄÇé¿ö
+					rp=countRows-rowsPage*(countPage-1);//é˜²æ­¢æœ€åä¸€é¡µå°‘äºæ¯é¡µè¡Œæ•°è€Œæ— æ³•å–å€¼çš„æƒ…å†µ
 				}
 				else {
 					rp=rowsPage;
@@ -107,20 +107,20 @@ public class AuditCenterPanel extends JPanel {//Î´Íê´ıĞø
 				}
 				
 				
-//				Vector<String[]> tempBatch=aAction.tempBatchStudent(vector);//Í¨¹ıÑ§ºÅ»ñÈ¡Ñ§ÉúĞÅÏ¢´æÈëÊı×é
+//				Vector<String[]> tempBatch=aAction.tempBatchStudent(vector);//é€šè¿‡å­¦å·è·å–å­¦ç”Ÿä¿¡æ¯å­˜å…¥æ•°ç»„
 				
 //				for(String str[]:tempBatch)
 //				{
 //					str[34]=String.valueOf(4);
 //					str[37]="";
 //				}
-				int num=aAction.updateBatchTeacher(vector,4);//¾ÍÒµÖ¸µ¼ÖĞĞÄÅúÁ¿Í¨¹ı
+				int num=aAction.updateBatchTeacher(vector,4);//å°±ä¸šæŒ‡å¯¼ä¸­å¿ƒæ‰¹é‡é€šè¿‡
 				if(num>0)
 				{
-					JOptionPane.showMessageDialog(null, num+"¸öÑ§ÉúÉóºËÍê±Ï");
+					JOptionPane.showMessageDialog(null, num+"ä¸ªå­¦ç”Ÿå®¡æ ¸å®Œæ¯•");
 					initTable(aBean,currentPage);
 				}else {
-					JOptionPane.showMessageDialog(null, "ÉóºËÊ§°Ü");
+					JOptionPane.showMessageDialog(null, "å®¡æ ¸å¤±è´¥");
 				}
 				
 			}
@@ -234,20 +234,20 @@ public class AuditCenterPanel extends JPanel {//Î´Íê´ıĞø
 	}
 	private void initTable(AuditBean bean,int currentPage2)
 	{
-		countRows=aAction.getCountRows(StudentMainFrame.uBean.getRid(),comboDepart.getSelectedItem()+"",comboEducation.getSelectedItem()+"");//»ñÈ¡×Ü×ÜÌõÊı
+		countRows=aAction.getCountRows(StudentMainFrame.uBean.getRid(),comboDepart.getSelectedItem()+"",comboEducation.getSelectedItem()+"");//è·å–æ€»æ€»æ¡æ•°
 		
 		
 		countPage=countRows%rowsPage>0?countRows/rowsPage+1:countRows/rowsPage;
 		
 		Vector<Vector> data=new Vector<Vector>();
-		data=aAction.getStudentAuditCenter(bean,currentPage2,rowsPage);//»ñÈ¡¸¨µ¼Ô±Í¨¹ıÉóºË
+		data=aAction.getStudentAuditCenter(bean,currentPage2,rowsPage);//è·å–è¾…å¯¼å‘˜é€šè¿‡å®¡æ ¸
 		Vector<String> header=new Vector<String>();
-		header.add("È«Ñ¡/·´Ñ¡");
-		header.add("Ñ§ºÅ");
-		header.add("ĞÕÃû");
-		header.add("Ñ§Ôº");
-		header.add("×¨Òµ");
-		header.add("ÉóºË×´Ì¬");
+		header.add("å…¨é€‰/åé€‰");
+		header.add("å­¦å·");
+		header.add("å§“å");
+		header.add("å­¦é™¢");
+		header.add("ä¸“ä¸š");
+		header.add("å®¡æ ¸çŠ¶æ€");
 		header.add("");
 		textCountPage.setText(String.valueOf(currentPage2)+"/"+String.valueOf(countPage));
 		CheckTableModle tableModel=new CheckTableModle(data,header);
@@ -258,7 +258,7 @@ public class AuditCenterPanel extends JPanel {//Î´Íê´ıĞø
 				int row=table.getSelectedRow();
 				int column=table.getSelectedColumn();
 				
-				if(column==6&&table.getValueAt(row, 5).equals("µÈ´ıÉóºË"))
+				if(column==6&&table.getValueAt(row, 5).equals("ç­‰å¾…å®¡æ ¸"))
 				{
 					AuditTeacherCenterDialog atcd=new AuditTeacherCenterDialog(StudentMainFrame.uBean.getRid(),table.getValueAt(row, 3)+"",table.getValueAt(row, 1)+"");
 					initTable(bean,currentPage);

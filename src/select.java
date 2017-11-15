@@ -5,22 +5,22 @@ public class select {
 	static int filecount = 0;
     static int number = 0;
 	
-	public static void method2(String path) throws IOException{//²ÎÊý£ºÒ»¸öÊÇÂ·¾¶£¬Ò»¸öÊÇÒª²éÕÒµÄÄÚÈÝ
+	public static void method2(String path) throws IOException{//å‚æ•°ï¼šä¸€ä¸ªæ˜¯è·¯å¾„ï¼Œä¸€ä¸ªæ˜¯è¦æŸ¥æ‰¾çš„å†…å®¹
 		File file = new File(path);
-		//file.listFiles()µ±Ç°Ä¿Â¼ÏÂËùÓÐµÄÎÄ¼þºÍÎÄ¼þ¼Ð
+		//file.listFiles()å½“å‰ç›®å½•ä¸‹æ‰€æœ‰çš„æ–‡ä»¶å’Œæ–‡ä»¶å¤¹
 		File files[] = file.listFiles();
-		//Ê×ÏÈÅÐ¶Ïµ±Ç°Ä¿Â¼Õâ¸öÊý×é²»ÄÜÎª¿Õ
+		//é¦–å…ˆåˆ¤æ–­å½“å‰ç›®å½•è¿™ä¸ªæ•°ç»„ä¸èƒ½ä¸ºç©º
 		if(files!=null){
-			//ÔöÇ¿forÑ­»·±éÀúµ±Ç°Õâ¸öÄ¿Â¼
+			//å¢žå¼ºforå¾ªçŽ¯éåŽ†å½“å‰è¿™ä¸ªç›®å½•
 			for(File f:files){
-				//ÅÐ¶ÏÊÇÎÄ¼þ¼Ð
+				//åˆ¤æ–­æ˜¯æ–‡ä»¶å¤¹
 				if(f.isDirectory()){
-				   //µÝ¹é£ºmethod2(¾ø¶ÔÂ·¾¶£¬ÄÚÈÝ)µ÷ÓÃ×Ô¼º
+				   //é€’å½’ï¼šmethod2(ç»å¯¹è·¯å¾„ï¼Œå†…å®¹)è°ƒç”¨è‡ªå·±
 				   method2(f.getAbsolutePath()); 
 				}
-				//ÅÐ¶ÏÊÇÎÄ¼þ
+				//åˆ¤æ–­æ˜¯æ–‡ä»¶
 				if(f.isFile()){
-					//ÔÚµ±Ç°Ä¿Â¼ÏÂµÄËùÓÐÎÄ¼þÖÐ²éÕÒ£¬Èç¹ûÕâ¸öÄ¿Â¼Ãû³ÆµÄÕâ¸öÖµ>-1,ÔòÊä³öÕâ¸öÄ¿Â¼µÄÂ·¾¶
+					//åœ¨å½“å‰ç›®å½•ä¸‹çš„æ‰€æœ‰æ–‡ä»¶ä¸­æŸ¥æ‰¾ï¼Œå¦‚æžœè¿™ä¸ªç›®å½•åç§°çš„è¿™ä¸ªå€¼>-1,åˆ™è¾“å‡ºè¿™ä¸ªç›®å½•çš„è·¯å¾„
 					if(f.getName().indexOf(".java")>-1){
 						filecount++;
 	            		BufferedReader br = new BufferedReader(new FileReader(f));
@@ -40,8 +40,8 @@ public class select {
 
 		try {
 			method2("D:\\WORKSPACE\\StudentManager");
-			System.out.println("ÎÄ¼þ¸öÊý:"+filecount);
-          System.out.println("ÐÐÊý:"+number);
+			System.out.println("æ–‡ä»¶ä¸ªæ•°:"+filecount);
+          System.out.println("è¡Œæ•°:"+number);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

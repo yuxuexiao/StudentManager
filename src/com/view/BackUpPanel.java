@@ -33,14 +33,14 @@ public class BackUpPanel extends JPanel {
 				SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
 				
 				String name=sdf.format(date)+".sql";
-				String savepath="d:/备份";
+				String savepath="d:/澶囦唤";
 				boolean flag=DatabaseOperator.backup(username, password, database, savepath, name);
 				if(flag)
 				{
-					JOptionPane.showMessageDialog(null, "备份成功");
+					JOptionPane.showMessageDialog(null, "澶囦唤鎴愬姛");
 					initItem();
 				}else {
-					JOptionPane.showMessageDialog(null, "备份失败");
+					JOptionPane.showMessageDialog(null, "澶囦唤澶辫触");
 				}
 			}
 		});
@@ -53,14 +53,14 @@ public class BackUpPanel extends JPanel {
 				String username="root";
 				String password="yuxuexiao";
 				String database="studentmanager";
-				String savepath="d:/备份";
+				String savepath="d:/澶囦唤";
 				String name=comboBox.getSelectedItem()+"";
 				boolean flag=DatabaseOperator.recover(username, password, database, savepath, name);
 				if(flag)
 				{
-					JOptionPane.showMessageDialog(null, "还原成功");
+					JOptionPane.showMessageDialog(null, "杩樺師鎴愬姛");
 				}else {
-					JOptionPane.showMessageDialog(null, "还原失败");
+					JOptionPane.showMessageDialog(null, "杩樺師澶辫触");
 				}
 			}
 		});
@@ -80,7 +80,7 @@ public class BackUpPanel extends JPanel {
 	public void initItem()
 	{
 		comboBox.removeAllItems();
-		File file=new File("d:/备份");
+		File file=new File("d:/澶囦唤");
 		File files[]=file.listFiles();
 		for(File f:files)
 		{

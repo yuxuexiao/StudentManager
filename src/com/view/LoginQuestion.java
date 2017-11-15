@@ -49,7 +49,7 @@ public class LoginQuestion extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		
 		
-		lblNewLabel.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 20));
+		lblNewLabel.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 20));
 		lblNewLabel.setBounds(204, 10, 173, 43);
 		contentPanel.add(lblNewLabel);
 		
@@ -66,7 +66,7 @@ public class LoginQuestion extends JDialog {
 		textQuestion.setColumns(10);
 		if(question.size()<=0)
 		{
-			JOptionPane.showMessageDialog(null, "»¶Ó­Ê¹ÓÃ´óÑ§Éú¹ÜÀíÏµÍ³");
+			JOptionPane.showMessageDialog(null, "æ¬¢è¿ä½¿ç”¨å¤§å­¦ç”Ÿç®¡ç†ç³»ç»Ÿ");
 			StudentMainFrame smf = new StudentMainFrame();
 			smf.setVisible(true);
 			dispose();
@@ -83,10 +83,10 @@ public class LoginQuestion extends JDialog {
 	private void initTable(Vector<QuestionBean> ques,String user)
 	{
 		textQuestion.setText(ques.get(count).getQuestion());
-		lblNewLabel.setText("µÚ"+(count+1)+"Ìâ");
+		lblNewLabel.setText("ç¬¬"+(count+1)+"é¢˜");
 		Vector header=new Vector();
-		header.add("±àºÅ");
-		header.add("Ñ¡Ïî");
+		header.add("ç¼–å·");
+		header.add("é€‰é¡¹");
 		header.add("");
 		Vector<Vector> data=new Vector<Vector>();
 		Vector<Integer> aid=qAction.getAidByQuestion(ques.get(count).getQuestion());
@@ -97,7 +97,7 @@ public class LoginQuestion extends JDialog {
 			Vector vec=new Vector();
 			vec.add(v.get(0));
 			vec.add(v.get(1));
-			vec.add("»Ø´ğ");
+			vec.add("å›ç­”");
 			
 			data.add(vec);
 		}
@@ -122,26 +122,26 @@ public class LoginQuestion extends JDialog {
 					int num=qAction.updateAnswerTime(value);
 					if(num>0)
 					{
-						JOptionPane.showMessageDialog(null, "»Ø´ğ³É¹¦");
+						JOptionPane.showMessageDialog(null, "å›ç­”æˆåŠŸ");
 						count++;
 						if(count==ques.size())
 						{
 							int rs=sAction.updateStudentQuestion(user,3);
 							if(rs>0)
 							{
-							JOptionPane.showMessageDialog(null, "»¶Ó­Ê¹ÓÃ´óÑ§Éú¹ÜÀíÏµÍ³");
+							JOptionPane.showMessageDialog(null, "æ¬¢è¿ä½¿ç”¨å¤§å­¦ç”Ÿç®¡ç†ç³»ç»Ÿ");
 							StudentMainFrame smf = new StudentMainFrame();
 							smf.setVisible(true);
 							dispose();
 							return;
 							}else {
-								JOptionPane.showMessageDialog(null, "µÇÂ½Ê§°Ü");
+								JOptionPane.showMessageDialog(null, "ç™»é™†å¤±è´¥");
 								
 							}
 						}
 						initTable(ques,user);
 					}else {
-						JOptionPane.showMessageDialog(null, "»Ø´ğÊ§°Ü");
+						JOptionPane.showMessageDialog(null, "å›ç­”å¤±è´¥");
 					}
 				
 				}

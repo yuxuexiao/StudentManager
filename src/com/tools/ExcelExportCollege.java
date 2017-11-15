@@ -16,15 +16,15 @@ import java.io.*;
 public class ExcelExportCollege {
 
 	/**
-	 * µ¼³öexcel·½·¨
+	 * å¯¼å‡ºexcelæ–¹æ³•
 	 * @param header
-	 *            Í·²¿µÄÁĞÃû
+	 *            å¤´éƒ¨çš„åˆ—å
 	 * @param colleges
-	 *            excelµÄÄÚÈİ
+	 *            excelçš„å†…å®¹
 	 * @param sheetPath
-	 *            µ¼³öµÄÎÄ¼ş
+	 *            å¯¼å‡ºçš„æ–‡ä»¶
 	 * @return 
-	 * 			  ÊÇ·ñµ¼³ö³É¹¦
+	 * 			  æ˜¯å¦å¯¼å‡ºæˆåŠŸ
 	 * @throws ioException 
 	 */
 	public static boolean exportExcel(List<String> header, List<String[]> colleges,
@@ -32,29 +32,29 @@ public class ExcelExportCollege {
 			// HSSFWorkbook wb = new HSSFWorkbook();
 			HSSFWorkbook wb = new HSSFWorkbook();
 
-			HSSFSheet sheet1 = wb.createSheet("Ñ§ÔºĞÅÏ¢±í");// ´´½¨¹¤×÷±í
+			HSSFSheet sheet1 = wb.createSheet("å­¦é™¢ä¿¡æ¯è¡¨");// åˆ›å»ºå·¥ä½œè¡¨
 
-			HSSFCellStyle cellstyle = wb.createCellStyle();// µ¥Ôª¸ñÑùÊ½
+			HSSFCellStyle cellstyle = wb.createCellStyle();// å•å…ƒæ ¼æ ·å¼
 
-			/*--------------------ÉèÖÃÁĞÍ·µÃÑùÊ½±í-------------*/
+			/*--------------------è®¾ç½®åˆ—å¤´å¾—æ ·å¼è¡¨-------------*/
 			HSSFFont font = wb.createFont();
 
 			font.setBoldweight((short) 20);
 
-			font.setFontName("ËÎÌå");
+			font.setFontName("å®‹ä½“");
 
 			font.setFontHeightInPoints((short) 10);
 
 			font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
 			cellstyle.setFont(font);
-			/****************** ÉèÖÃÍ·²¿ÁĞÃû *************************/
-			HSSFRow row = sheet1.createRow(0);// ´´½¨¹¤×÷±íÖĞµÄÒ»ĞĞ---------Ã¿Ò»ÁĞµÄÁĞÍ·
+			/****************** è®¾ç½®å¤´éƒ¨åˆ—å *************************/
+			HSSFRow row = sheet1.createRow(0);// åˆ›å»ºå·¥ä½œè¡¨ä¸­çš„ä¸€è¡Œ---------æ¯ä¸€åˆ—çš„åˆ—å¤´
 
 			for (int i = 0; i < header.size(); i++) {
 
 				HSSFCell cell1 = row.createCell(i);
 
-				cell1.setCellStyle(cellstyle);// ÉèÖÃµ¥Ôª¸ñÑùÊ½
+				cell1.setCellStyle(cellstyle);// è®¾ç½®å•å…ƒæ ¼æ ·å¼
 
 				cell1.setCellValue(header.get(i));
 
@@ -62,7 +62,7 @@ public class ExcelExportCollege {
 
 			}
 
-			/****************** ´ÓÊı¾İ¿âµÃµ½µÄÊı¾İ·Åµ½xlsÖĞ *******************/
+			/****************** ä»æ•°æ®åº“å¾—åˆ°çš„æ•°æ®æ”¾åˆ°xlsä¸­ *******************/
 			for (int j = 0; j < colleges.size(); j++) {
 
 				String[] s = (String[]) colleges.get(j);
@@ -72,7 +72,7 @@ public class ExcelExportCollege {
 					row.createCell(k).setCellValue(s[k]);
 				}
 			}
-			/***************** ¸ù¾İÎÄ¼şÂ·¾¶µ¼³öÄÚÈİ ********************/
+			/***************** æ ¹æ®æ–‡ä»¶è·¯å¾„å¯¼å‡ºå†…å®¹ ********************/
 
 			FileOutputStream output = new FileOutputStream(sheetPath);
 			output.flush();

@@ -11,8 +11,8 @@ public class CheckTableModle extends DefaultTableModel {
     }
 
     // /**
-    // * 根据类型返回显示空间
-    // * 布尔类型返回显示checkbox
+    // * 鏍规嵁绫诲瀷杩斿洖鏄剧ず绌洪棿
+    // * 甯冨皵绫诲瀷杩斿洖鏄剧ずcheckbox
     // */
     public Class getColumnClass(int c) {
         return getValueAt(0, c).getClass();

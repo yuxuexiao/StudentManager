@@ -52,8 +52,8 @@ public class AddOneUserPanel extends JPanel {
 		
 		JComboBox comboClass = new JComboBox();
 		comboClass.setBounds(202, 152, 119, 21);
-		comboClass.addItem("¹ÜÀíÔ±");
-		comboClass.addItem("¾ÍÒµÖ¸µ¼ÖĞĞÄ");
+		comboClass.addItem("ç®¡ç†å‘˜");
+		comboClass.addItem("å°±ä¸šæŒ‡å¯¼ä¸­å¿ƒ");
 		add(comboClass);
 		
 		JLabel lblClass = new JLabel("\u7C7B\u522B");
@@ -63,15 +63,15 @@ public class AddOneUserPanel extends JPanel {
 		JButton btnRoot = new JButton("\u6DFB\u52A0");
 		btnRoot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int n=JOptionPane.showConfirmDialog(null,"È·ÈÏÌí¼Ó","Ìí¼ÓÓÃ»§",JOptionPane.OK_CANCEL_OPTION);
+				int n=JOptionPane.showConfirmDialog(null,"ç¡®è®¤æ·»åŠ ","æ·»åŠ ç”¨æˆ·",JOptionPane.OK_CANCEL_OPTION);
 				if(n==0)
 				{
 				UserKeyBean ukb=new UserKeyBean();
-				if(comboClass.getSelectedItem().equals("¹ÜÀíÔ±"))
+				if(comboClass.getSelectedItem().equals("ç®¡ç†å‘˜"))
 				{
 					ukb.setRid(4);
 				}
-				if(comboClass.getSelectedItem().equals("¾ÍÒµÖ¸µ¼ÖĞĞÄ")) {
+				if(comboClass.getSelectedItem().equals("å°±ä¸šæŒ‡å¯¼ä¸­å¿ƒ")) {
 					ukb.setRid(3);
 				}
 				ukb.setUsername(textUserRoot.getText());
@@ -80,9 +80,9 @@ public class AddOneUserPanel extends JPanel {
 				ukb.setAuthority(DefaultAut);
 				int num=uka.addUser(ukb);
 				if(num>0){
-					JOptionPane.showMessageDialog(null, "Ìí¼Ó³É¹¦");
+					JOptionPane.showMessageDialog(null, "æ·»åŠ æˆåŠŸ");
 				}else {
-					JOptionPane.showMessageDialog(null, "Ìí¼ÓÊ§°Ü");
+					JOptionPane.showMessageDialog(null, "æ·»åŠ å¤±è´¥");
 				}
 				}
 			}
@@ -101,7 +101,7 @@ public class AddOneUserPanel extends JPanel {
 		JComboBox comboDepartTeach = new JComboBox();
 		comboDepartTeach.setBounds(202, 239, 119, 23);
 		
-		Vector<String> notExsistTeacher=uka.getNotExsistTeacher();//»ñÈ¡Î´×¢²á¸¨µ¼Ô±Ñ§ÔºÃû³Æ
+		Vector<String> notExsistTeacher=uka.getNotExsistTeacher();//è·å–æœªæ³¨å†Œè¾…å¯¼å‘˜å­¦é™¢åç§°
 		for(String str:notExsistTeacher)
 		{
 			comboDepartTeach.addItem(str);
@@ -120,7 +120,7 @@ public class AddOneUserPanel extends JPanel {
 		JButton buttonTeach = new JButton("\u6DFB\u52A0");
 		buttonTeach.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int n=JOptionPane.showConfirmDialog(null,"È·ÈÏÌí¼Ó","Ìí¼ÓÓÃ»§",JOptionPane.OK_CANCEL_OPTION);
+				int n=JOptionPane.showConfirmDialog(null,"ç¡®è®¤æ·»åŠ ","æ·»åŠ ç”¨æˆ·",JOptionPane.OK_CANCEL_OPTION);
 				if(n==0)
 				{
 				UserKeyBean ukbTeach=new UserKeyBean();
@@ -132,9 +132,9 @@ public class AddOneUserPanel extends JPanel {
 				int num=uka.addUser(ukbTeach);
 				if(num>0)
 				{
-					JOptionPane.showMessageDialog(null, "Ìí¼Ó³É¹¦");
+					JOptionPane.showMessageDialog(null, "æ·»åŠ æˆåŠŸ");
 				}else {
-					JOptionPane.showMessageDialog(null,"Ìí¼ÓÊ§°Ü");
+					JOptionPane.showMessageDialog(null,"æ·»åŠ å¤±è´¥");
 				}
 				}
 			}

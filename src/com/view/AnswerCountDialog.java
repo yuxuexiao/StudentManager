@@ -52,10 +52,10 @@ public class AnswerCountDialog extends JDialog {
 		
 		Vector<Vector> data=qAction.getTimeByAid(aid,countTimes);
 		Vector header=new Vector();
-		header.add("编号");
-		header.add("答案");
-		header.add("票数");
-		header.add("占比");
+		header.add("缂栧彿");
+		header.add("绛旀");
+		header.add("绁ㄦ暟");
+		header.add("鍗犳瘮");
 		DefaultTableModel tableModel=new DefaultTableModel(data,header);
 		table = new JTable(tableModel);
 		scrollPane.setViewportView(table);

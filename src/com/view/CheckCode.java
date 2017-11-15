@@ -31,7 +31,7 @@ public class CheckCode extends JComponent implements MouseListener {
         setPreferredSize(new Dimension(width, height));  
         setSize(width, height);  
         this.addMouseListener(this);  
-        setToolTipText("µã»÷¿ÉÒÔ¸ü»»ÑéÖ¤Âë");  
+        setToolTipText("ç‚¹å‡»å¯ä»¥æ›´æ¢éªŒè¯ç ");  
     }  
   
     public int getCodeLength() {  
@@ -39,7 +39,7 @@ public class CheckCode extends JComponent implements MouseListener {
     }  
   
     /* 
-    ÉèÖÃÑéÖ¤ÂëÎÄ×ÖµÄ³¤¶È 
+    è®¾ç½®éªŒè¯ç æ–‡å­—çš„é•¿åº¦ 
     */  
     public void setCodeLength(int codeLength) {  
         if(codeLength < 4) {  
@@ -55,7 +55,7 @@ public class CheckCode extends JComponent implements MouseListener {
     }  
   
     /* 
-        ²úÉúËæ»úµÄÑÕÉ« 
+        äº§ç”Ÿéšæœºçš„é¢œè‰² 
     */  
     public Color getRandColor(int min, int max) {  
   
@@ -69,7 +69,7 @@ public class CheckCode extends JComponent implements MouseListener {
         return new Color(red, green, blue);  
     }  
     /* 
-        ÉèÖÃÑéÖ¤Âë¾ßÌåµÄ×ÖÄ¸ÊÇÊ²Ã´ 
+        è®¾ç½®éªŒè¯ç å…·ä½“çš„å­—æ¯æ˜¯ä»€ä¹ˆ 
     */  
     protected String generateCode() {  
         char[] codes = new char[this.codeLength];  
@@ -95,13 +95,13 @@ public class CheckCode extends JComponent implements MouseListener {
         super.setPreferredSize(new Dimension(width, height));  
         Font mFont = new Font("Arial", Font.BOLD | Font.ITALIC, 25);  
         g.setFont(mFont);  
-        //»æÖÆ³öÑéÖ¤ÂëµÄ±³¾°µÄ¾ØĞÎÂÖÀª  
+        //ç»˜åˆ¶å‡ºéªŒè¯ç çš„èƒŒæ™¯çš„çŸ©å½¢è½®å»“  
         Graphics2D g2d = (Graphics2D) g;  
         g2d.setColor(getRandColor(200, 250));  
         g2d.fillRect(0, 0, width, height);  
         g2d.setColor(getRandColor(180, 200));  
         g2d.drawRect(0, 0, width - 1, height - 1);  
-        //»æÖÆ³öÑéÖ¤Âë±³¾°µÄÏß  
+        //ç»˜åˆ¶å‡ºéªŒè¯ç èƒŒæ™¯çš„çº¿  
         int i = 0, len = 150;  
         for (; i < len; i++) {  
             int x = random.nextInt(width - 1);  
@@ -120,7 +120,7 @@ public class CheckCode extends JComponent implements MouseListener {
             g2d.drawRect(x, y, 0, 0); 
         }  
   
-        //»æÖÆ³öÑéÖ¤ÂëµÄ¾ßÌå×ÖÄ¸  
+        //ç»˜åˆ¶å‡ºéªŒè¯ç çš„å…·ä½“å­—æ¯  
         i = 0; len = this.codeLength;  
         FontMetrics fm = g2d.getFontMetrics();  
         int base = (height - fm.getHeight())/2 + fm.getAscent();  
@@ -132,7 +132,7 @@ public class CheckCode extends JComponent implements MouseListener {
         }  
     }  
   
-    //ÏÂÒ»¸öÑéÖ¤Âë  
+    //ä¸‹ä¸€ä¸ªéªŒè¯ç   
     public void nextCode() {  
         generateCode();  
         repaint();  

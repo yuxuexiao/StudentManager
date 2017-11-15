@@ -64,8 +64,8 @@ public class QuestionDialog extends JDialog {
 	private void initTable(String question)
 	{
 		Vector header=new Vector();
-		header.add("编号");
-		header.add("答案");
+		header.add("缂栧彿");
+		header.add("绛旀");
 		header.add("");
 		header.add("");
 		Vector<Vector> data=new Vector<Vector>();
@@ -77,8 +77,8 @@ public class QuestionDialog extends JDialog {
 			Vector vec=new Vector();
 			vec.add(v.get(0));
 			vec.add(v.get(1));
-			vec.add("修改");
-			vec.add("删除");
+			vec.add("淇敼");
+			vec.add("鍒犻櫎");
 			data.add(vec);
 		}
 		DefaultTableModel tableModel=new DefaultTableModel(data,header);
@@ -92,31 +92,31 @@ public class QuestionDialog extends JDialog {
 				String answer=table.getValueAt(row, 1)+"";
 				if(column==2)
 				{
-					int num=JOptionPane.showConfirmDialog(null, "确认修改","修改答案",JOptionPane.OK_CANCEL_OPTION);
+					int num=JOptionPane.showConfirmDialog(null, "纭淇敼","淇敼绛旀",JOptionPane.OK_CANCEL_OPTION);
 					if(num==0)
 					{
 						int result=qAction.updateAnswer(id,answer);
 						if(result>0)
 						{
-							JOptionPane.showMessageDialog(null, "修改成功");
+							JOptionPane.showMessageDialog(null, "淇敼鎴愬姛");
 							initTable(question);
 						}else {
-							JOptionPane.showMessageDialog(null, "修改失败");
+							JOptionPane.showMessageDialog(null, "淇敼澶辫触");
 						}
 					}
 				}
 				if(column==3)
 				{
-					int num=JOptionPane.showConfirmDialog(null, "确认修改","修改答案",JOptionPane.OK_CANCEL_OPTION);
+					int num=JOptionPane.showConfirmDialog(null, "纭淇敼","淇敼绛旀",JOptionPane.OK_CANCEL_OPTION);
 					if(num==0)
 					{
 						int result=qAction.delAnswer(id);
 						if(result>0)
 						{
-							JOptionPane.showMessageDialog(null, "删除成功");
+							JOptionPane.showMessageDialog(null, "鍒犻櫎鎴愬姛");
 							initTable(question);
 						}else {
-							JOptionPane.showMessageDialog(null, "删除失败");
+							JOptionPane.showMessageDialog(null, "鍒犻櫎澶辫触");
 						}
 					}
 				}

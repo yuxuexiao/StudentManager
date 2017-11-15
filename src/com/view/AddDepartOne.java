@@ -62,17 +62,17 @@ public class AddDepartOne extends JDialog {
 		JButton btnAddDepart = new JButton("\u6DFB\u52A0");
 		btnAddDepart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int n=JOptionPane.showConfirmDialog(null,"确认添加","添加学院",JOptionPane.OK_CANCEL_OPTION);
+				int n=JOptionPane.showConfirmDialog(null,"纭娣诲姞","娣诲姞瀛﹂櫌",JOptionPane.OK_CANCEL_OPTION);
 				if(n==0)
 				{
 				String name=textDepartName.getText();
 				int num=dAction.addDepartmentOne(name);
 				if(num>0)
 				{
-					JOptionPane.showMessageDialog(null, "添加成功");
+					JOptionPane.showMessageDialog(null, "娣诲姞鎴愬姛");
 				}
 				else {
-					JOptionPane.showMessageDialog(null, "添加失败");
+					JOptionPane.showMessageDialog(null, "娣诲姞澶辫触");
 				}
 				}
 			}
@@ -152,8 +152,8 @@ public class AddDepartOne extends JDialog {
 		
 		JComboBox comboEducationN = new JComboBox();
 		comboEducationN.setBounds(132, 166, 131, 21);
-		comboEducationN.addItem("本科");
-		comboEducationN.addItem("专科");
+		comboEducationN.addItem("鏈");
+		comboEducationN.addItem("涓撶");
 		contentPanel.add(comboEducationN);
 		
 		JLabel lblEducationN = new JLabel("\u5B66\u5386");
@@ -162,8 +162,8 @@ public class AddDepartOne extends JDialog {
 		
 		JComboBox comboEducationG = new JComboBox();
 		comboEducationG.setBounds(132, 314, 131, 21);
-		comboEducationG.addItem("硕士");
-		comboEducationG.addItem("博士");
+		comboEducationG.addItem("纭曞＋");
+		comboEducationG.addItem("鍗氬＋");
 		contentPanel.add(comboEducationG);
 		
 		JLabel labEducationG = new JLabel("\u5B66\u5386");
@@ -173,7 +173,7 @@ public class AddDepartOne extends JDialog {
 		JButton buttonAddPrfsN = new JButton("\u6DFB\u52A0");
 		buttonAddPrfsN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int n=JOptionPane.showConfirmDialog(null,"确认添加","添加专业",JOptionPane.OK_CANCEL_OPTION);
+				int n=JOptionPane.showConfirmDialog(null,"纭娣诲姞","娣诲姞涓撲笟",JOptionPane.OK_CANCEL_OPTION);
 				if(n==0)
 				{
 				DepartmentBean dBeanN=new DepartmentBean(); 
@@ -184,9 +184,9 @@ public class AddDepartOne extends JDialog {
 				int num=dAction.addProfessionOne(dBeanN);
 				if(num>0)
 				{
-					JOptionPane.showMessageDialog(null, "添加成功");
+					JOptionPane.showMessageDialog(null, "娣诲姞鎴愬姛");
 				}else {
-					JOptionPane.showMessageDialog(null, "添加失败");
+					JOptionPane.showMessageDialog(null, "娣诲姞澶辫触");
 				}
 				}
 			}
@@ -197,7 +197,7 @@ public class AddDepartOne extends JDialog {
 		JButton buttonAddPrfsG = new JButton("\u6DFB\u52A0");
 		buttonAddPrfsG.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int n=JOptionPane.showConfirmDialog(null,"确认添加","添加专业",JOptionPane.OK_CANCEL_OPTION);
+				int n=JOptionPane.showConfirmDialog(null,"纭娣诲姞","娣诲姞涓撲笟",JOptionPane.OK_CANCEL_OPTION);
 				if(n==0)
 				{
 				DepartmentBean dBeanG=new DepartmentBean(); 
@@ -208,9 +208,9 @@ public class AddDepartOne extends JDialog {
 				int num=dAction.addProfessionOne(dBeanG);
 				if(num>0)
 				{
-					JOptionPane.showMessageDialog(null, "添加成功");
+					JOptionPane.showMessageDialog(null, "娣诲姞鎴愬姛");
 				}else {
-					JOptionPane.showMessageDialog(null, "添加失败");
+					JOptionPane.showMessageDialog(null, "娣诲姞澶辫触");
 				}
 				}
 			}

@@ -32,7 +32,7 @@ public class TongJiQuestion extends JPanel {
 		
 		
 		JLabel lblNewLabel = new JLabel("\u95EE\u5377\u8C03\u67E5\u4FE1\u606F\u7EDF\u8BA1");
-		lblNewLabel.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 30));
+		lblNewLabel.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 30));
 		lblNewLabel.setBounds(167, 25, 274, 55);
 		add(lblNewLabel);
 		initTable();
@@ -43,7 +43,7 @@ public class TongJiQuestion extends JPanel {
 		Vector<QuestionBean> question=qAction.getAllQuestion();
 		Vector<Vector> data=new Vector<Vector>();
 		Vector<Integer> aid=new Vector<Integer>();
-		int countTime=0;//×ÜÆ±Êı
+		int countTime=0;//æ€»ç¥¨æ•°
 		for(QuestionBean bean:question)
 		{
 			Vector v=new Vector();
@@ -52,13 +52,13 @@ public class TongJiQuestion extends JPanel {
 			aid=qAction.getAidByQuestion(bean.getQuestion());
 			countTime=qAction.getCountTimeByAid(aid);
 			v.add(countTime);
-			v.add("ÏêÏ¸");
+			v.add("è¯¦ç»†");
 			data.add(v);
 		}
 		Vector header=new Vector();
-		header.add("±àºÅ");
-		header.add("ÎÊÌâ");
-		header.add("×ÜÆ±Êı");
+		header.add("ç¼–å·");
+		header.add("é—®é¢˜");
+		header.add("æ€»ç¥¨æ•°");
 		header.add("");
 		DefaultTableModel tableModel=new DefaultTableModel(data,header);
 		table = new JTable(tableModel);
